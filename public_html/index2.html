@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+      <head>
+            <title>Flexo</title>
+            <meta charset="UTF-8">
+            <meta name="description" content="Dashboard">
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+            <meta name="robots" content="noindex, nofollow">
+            <meta name="apple-mobile-web-app-capable" content="yes">
+            <meta name="mobile-web-app-capable" content="yes">
+            <!--<link rel="stylesheet" type="text/css" href="assets/dist/css/flexo.min.css" />-->
+            <style>
+                  body { 
+                        margin: 0; background: #131212;  
+                  } 
+                  div#masonry { 
+                        display: flex; 
+                        flex-direction: column; 
+                        flex-wrap: wrap;
+                        
+                        font-size: 0;  
+                  }
+                  div#masonry img {  
+                        width: 33.3%;
+                        transition: .8s opacity;
+                  } 
+
+                  div#masonry:hover img { opacity: 0.3; }
+                  div#masonry:hover img:hover { opacity: 1; } 
+
+                  /* fallback for earlier versions of Firefox */
+
+                 
+
+            </style>
+      </head>
+      <body>
+            <div id="masonry">
+                  <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/1.jpg">
+                  <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/2.jpg">
+                  <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/3.jpg">
+                  <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/4.jpg">
+                  <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/6.jpg">
+                  <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/8.jpg">
+                  <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/9.jpg">
+                  <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/7.jpg">
+            </div>
+
+      </body>
+</html>

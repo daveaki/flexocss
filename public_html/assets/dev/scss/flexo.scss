@@ -1,0 +1,130 @@
+/* CSS Flexo */
+@import "_config.scss";
+@import "_mixin_components.scss";
+
+
+body,html
+{
+      margin: 0;
+      padding: 0;
+      position: relative;
+      @if($containerOverflowX_hidden == 1)
+      {
+            max-width: 100vw;
+            overflow-x: hidden;
+
+      }
+      &.border
+      {
+            .fl-box
+            {
+                  border: 1px solid #fff;
+            }
+      }
+}
+*
+{
+      box-sizing: border-box;
+}
+@if($transition == 1)
+{
+      div
+      {
+            transition: width $transitionTime $transitionEasing,
+            margin-left $transitionTime $transitionEasing,
+            min-height $transitionTime $transitionEasing,
+            flex $transitionTime $transitionEasing;
+      }
+
+}
+@for $j from 1 through $box
+{
+      h#{$j}
+      {
+            margin: 0;
+      }
+}
+p
+{
+      margin: 0;
+}
+ul
+{
+      padding: 0;
+      margin: 0;
+}
+
+
+
+@include flexBox();
+@include positioningAndFill(); 
+@include text();
+@include images();
+@include z-index();
+@include box-flex-sm();
+@include box-small();
+@include height-vp-sm();
+@include visibility(sm,0);
+@include visibility(md,nth($mediaQuery,1));
+@include visibility(lg,nth($mediaQuery,2));
+@include visibility(sp,nth($mediaQuery,3));
+@include visibility(mg,nth($mediaQuery,4));
+@include visibility(ut,nth($mediaQuery,5));
+
+
+
+@media only screen and (min-width:nth($mediaQuery,1))
+{
+      @include box-medium();
+      @include box-flex-md();
+      @include height-vp-md();
+
+}
+@media only screen and (min-width:nth($mediaQuery,2))
+{
+      @include box-large();
+      @include box-flex-lg();
+      @include height-vp-lg();
+}
+@media only screen and (min-width:nth($mediaQuery,3))
+{
+      @include box-super();
+      @include box-flex-sp();
+      @include height-vp-sp();
+}
+@media only screen and (min-width:nth($mediaQuery,4))
+{
+      .container
+      {
+            width: nth($mediaQuery,4);
+            .row
+            {
+                  &.block
+                  {
+                        width: nth($mediaQuery,4);
+                        margin: auto;
+                  }
+
+            }
+      }
+      @include box-mega();
+      @include box-flex-mg();
+      @include height-vp-mg();
+}
+@media only screen and (min-width:nth($mediaQuery,5))
+{
+      @include box-ultra();
+      @include box-flex-ut();
+      @include height-vp-ut();
+}
+
+
+
+//######################## WIREFRAME MODULE !SOLO DEV!########################
+@if($env == 'dev')
+{
+      @include wireframe();
+
+}
+
+

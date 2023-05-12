@@ -1,0 +1,26 @@
+$env: 'dev';
+$gap: 30px;
+$box:12;
+$bp:sm,md,lg,sp,mg,ut;
+$mediaQuery:480px,768px,1024px,1420px,1680px;
+$mediaQueryMAX:5000px;
+$flBoxPadding:0;
+$flBoxPaddingIn:10px 10px;
+$startFlexWidth:8.333333333;
+$transition:1;
+$transitionTime:700ms;
+$transitionEasing:ease-in-out;
+$containerOverflowX_hidden:1;
+$Z_index:0,10;
+
+$wireframeColorContainer: #6666ff;
+$wireframeColorBBox: #111;
+$wireframeColorFBox: #333;
+$wireframeColor: #f8f8f8;
+$wireframeColorRow: #6666ff;
+/*$wireframeColorLegend: #000;*/
+/*$wireframeFlex:  #111;*/
+
+$wireframeStatus:1
+
+

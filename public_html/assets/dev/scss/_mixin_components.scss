@@ -1,0 +1,670 @@
+@mixin positioningAndFill()
+{
+      .position-relative
+      {
+            position: relative;
+      }
+      .position-absolute
+      {
+            position: absolute
+      }
+      .position-fixed
+      {
+            position: fixed
+      }
+      .top-left
+      {
+            top: 0;
+            left: 0;
+      }
+      .top-right
+      {
+            top: 0;
+            right: 0;
+      }
+      .bottom-left
+      {
+            bottom: 0;
+            left: 0;
+      }
+      .bottom-right
+      {
+            bottom: 0;
+            right: 0;
+      }
+      .no-padding
+      {
+            padding: 0;
+      }
+      .no-margin
+      {
+            margin: 0;
+      }
+      .fill-vp
+      {
+            width: 100vw;
+            height: 100vh;
+      }
+      .fill-vp-h
+      {
+            width: 100vw;
+      }
+      .fill-vp-v
+      {
+            height: 100vh;
+      }
+      .fill
+      {
+            width: 100%;
+            height: 100%;
+      }
+      .fill-width
+      {
+            width: 100%;
+      }
+      .fill-height
+      {
+            height: 100%;
+      }
+}
+@mixin text()
+{
+      .text-left
+      {
+            text-align: left;
+      }
+      .text-center
+      {
+            text-align: center
+      }
+      .text-right
+      {
+            text-align: right;
+      }
+      .text-justify
+      {
+            text-align: justify;
+      }
+}
+@mixin images()
+{
+      img
+      {
+
+            &.align-center
+            {
+                  margin: auto;
+            }
+            &.block
+            {
+                  display: block;
+            }
+            &.align-left
+            {
+                  margin-right: auto;
+                  margin-left: 0;
+            }
+            &.align-right
+            {
+                  margin-right: 0;
+                  margin-left: auto;
+            }
+      }
+}
+
+/*###########scaffoling###########*/
+@mixin box-small()
+{
+
+      @for $i from 1 through $box
+      {
+             $ngap: #{calc(($box/$i - 1) * 30/($box/$i))}px;
+            .fl-sm-#{$i} 
+            {
+                  width: calc(  ((100% / $box) * $i) - $ngap);
+                  transition: all $transitionTime $transitionEasing;
+            }
+      }
+      @for $i from 1 through $box
+      {
+            .fl-sm-order-#{$i} 
+            {
+                  order: $i;
+            }
+      }
+      @for $i from 1 through $box
+      {
+             $ngap: #{calc(($box/$i ) * 30/($box/$i))}px;
+            .fl-sm-offset-#{$i} 
+            {
+                  margin-left: calc(  ((100% / $box) * $i) + $gap/ ($box/$i));
+                  transition: all $transitionTime $transitionEasing;
+            }
+      }
+      .fl-sm-offset-0
+      {
+            margin-left: 0;
+            transition: all $transitionTime $transitionEasing;
+      }
+}
+@mixin box-medium()
+{
+
+      @for $i from 1 through $box
+      {
+             $ngap: #{calc(($box/$i - 1) * 30/($box/$i))}px;
+            .fl-md-#{$i} 
+            {
+                  width: calc(  ((100% / $box) * $i) - $ngap);
+                  transition: all $transitionTime $transitionEasing;
+            }
+      }
+      @for $i from 1 through $box
+      {
+            .fl-md-order-#{$i} 
+            {
+                  order: $i;
+            }
+      }
+      @for $i from 1 through $box
+      {
+             $ngap: #{calc(($box/$i ) * 30/($box/$i))}px;
+            .fl-md-offset-#{$i} 
+            {
+                  margin-left: calc(  ((100% / $box) * $i) + $gap/ ($box/$i));
+                  transition: all $transitionTime $transitionEasing;
+            }
+      }
+      .fl-md-offset-0
+      {
+            margin-left: 0;
+            transition: all $transitionTime $transitionEasing;
+      }
+}
+@mixin box-large()
+{
+
+      @for $i from 1 through $box
+      {
+             $ngap: #{calc(($box/$i - 1) * 30/($box/$i))}px;
+            .fl-lg-#{$i} 
+            {
+                  width: calc(  ((100% / $box) * $i) - $ngap);
+                  transition: all $transitionTime $transitionEasing;
+            }
+      }
+      @for $i from 1 through $box
+      {
+            .fl-lg-order-#{$i} 
+            {
+                  order: $i;
+            }
+      }
+      @for $i from 1 through $box
+      {
+             $ngap: #{calc(($box/$i ) * 30/($box/$i))}px;
+            .fl-lg-offset-#{$i} 
+            {
+                  margin-left: calc(  ((100% / $box) * $i) + $gap/ ($box/$i));
+                  transition: all $transitionTime $transitionEasing;
+            }
+      }
+      .fl-lg-offset-0
+      {
+            margin-left: 0;
+            transition: all $transitionTime $transitionEasing;
+      }
+}
+@mixin box-super()
+{
+
+      @for $i from 1 through $box
+      {
+             $ngap: #{calc(($box/$i - 1) * 30/($box/$i))}px;
+            .fl-sp-#{$i} 
+            {
+                  width: calc(  ((100% / $box) * $i) - $ngap);
+                  transition: all $transitionTime $transitionEasing;
+            }
+      }
+      @for $i from 1 through $box
+      {
+            .fl-sp-order-#{$i} 
+            {
+                  order: $i;
+            }
+      }
+      @for $i from 1 through $box
+      {
+             $ngap: #{calc(($box/$i ) * 30/($box/$i))}px;
+            .fl-sp-offset-#{$i} 
+            {
+                  margin-left: calc(  ((100% / $box) * $i) + $gap/ ($box/$i));
+                  transition: all $transitionTime $transitionEasing;
+            }
+      }
+      .fl-sp-offset-0
+      {
+            margin-left: 0;
+            transition: all $transitionTime $transitionEasing;
+      }
+}
+@mixin box-mega()
+{
+
+      @for $i from 1 through $box
+      {
+             $ngap: #{calc(($box/$i - 1) * 30/($box/$i))}px;
+            .fl-mg-#{$i} 
+            {
+                  width: calc(  ((100% / $box) * $i) - $ngap);
+                  transition: all $transitionTime $transitionEasing;
+            }
+      }
+      @for $i from 1 through $box
+      {
+            .fl-mg-order-#{$i} 
+            {
+                  order: $i;
+            }
+      }
+      @for $i from 1 through $box
+      {
+             $ngap: #{calc(($box/$i ) * 30/($box/$i))}px;
+            .fl-mg-offset-#{$i} 
+            {
+                  margin-left: calc(  ((100% / $box) * $i) + $gap/ ($box/$i));
+                  transition: all $transitionTime $transitionEasing;
+            }
+      }
+      .fl-mg-offset-0
+      {
+            margin-left: 0;
+            transition: all $transitionTime $transitionEasing;
+      }
+}
+@mixin box-ultra()
+{
+
+      @for $i from 1 through $box
+      {
+             $ngap: #{calc(($box/$i - 1) * 30/($box/$i))}px;
+            .fl-ut-#{$i} 
+            {
+                  width: calc(  ((100% / $box) * $i) - $ngap);
+                  transition: all $transitionTime $transitionEasing;
+            }
+      }
+      @for $i from 1 through $box
+      {
+            .fl-ut-order-#{$i} 
+            {
+                  order: $i;
+            }
+      }
+      @for $i from 1 through $box
+      {
+             $ngap: #{calc(($box/$i ) * 30/($box/$i))}px;
+            .fl-ut-offset-#{$i} 
+            {
+                  margin-left: calc(  ((100% / $box) * $i) + $gap/ ($box/$i));
+                  transition: all $transitionTime $transitionEasing;
+            }
+      }
+      .fl-ut-offset-0
+      {
+            margin-left: 0;
+            transition: all $transitionTime $transitionEasing;
+      }
+}
+/*#############################*/
+
+@mixin box-flex-sm()
+{
+
+      @for $i from 1 through $box
+      {
+            .fl-flex-sm-#{$i} 
+            {
+                  flex: $i;
+            }
+      }
+
+}
+@mixin box-flex-md()
+{
+
+      @for $i from 1 through $box
+      {
+            .fl-flex-md-#{$i} 
+            {
+                  flex: $i;
+            }
+      }
+
+}
+@mixin box-flex-lg()
+{
+
+      @for $i from 1 through $box
+      {
+            .fl-flex-lg-#{$i} 
+            {
+                  flex: $i;
+            }
+      }
+
+}
+@mixin box-flex-sp()
+{
+
+      @for $i from 1 through $box
+      {
+            .fl-flex-sp-#{$i} 
+            {
+                  flex: $i;
+            }
+      }
+
+}
+@mixin box-flex-mg()
+{
+
+      @for $i from 1 through $box
+      {
+            .fl-flex-mg-#{$i} 
+            {
+                  flex: $i;
+            }
+      }
+
+}
+@mixin box-flex-ut()
+{
+
+      @for $i from 1 through $box
+      {
+            .fl-flex-ut-#{$i}
+            {
+                  flex: $i;
+            }
+      }
+
+}
+@mixin z-index()
+{
+      $zStart:nth($Z_index,1);
+      $zEnd:nth($Z_index,2);
+      @for $zStart from $zStart through $zEnd
+      {
+            .z-index-#{$zStart} 
+            {
+                  z-index: $zStart;
+            }
+      }
+
+}
+@mixin visibility($bp,$mStart)
+{
+
+      @media only screen and (min-width:$mStart)
+      {
+            .fl-#{$bp}-hidden
+            {
+                  display: none;
+            }
+            .fl-#{$bp}-show
+            {
+                  display: block;
+            }
+      }
+
+}
+@mixin flexBox()
+{
+      .container
+      {
+            width: 100%;
+            margin: auto;
+            display: grid;
+            gap: $gap;
+            &.fluid
+            {
+                  width: 100%;
+            }
+      }
+      .row
+      {
+            width: 100%;
+            display: flex;
+            flex-wrap: nowrap;
+            gap:$gap;
+            
+            &.fluid
+            {
+                  width: 100%;
+            }
+            &.justify-center
+            {
+                  justify-content: center;
+            }
+            &.justify-left
+            {
+                  justify-content: flex-start;
+            }
+            &.justify-right
+            {
+                  justify-content: flex-end;
+            }
+            &.space-around
+            {
+                  justify-content: space-around
+            }
+            &.space-between
+            {
+                  justify-content: space-between
+            }
+            &.align-center
+            {
+                  align-items: center;
+                 
+            }
+            &.align-top
+            {
+                  align-items: flex-start
+            }
+            &.align-bottom
+            {
+                  align-items: flex-end;
+                  
+            }
+            &.wrap
+            {
+                  flex-wrap: wrap
+            }
+            &.wrap-reverse
+            {
+                  flex-wrap: wrap-reverse
+            }
+            &.row-reverse
+            {
+                  flex-direction: row-reverse
+            }
+            &.no-padding
+            {
+                  .fl-box,.fl-box-in
+                  {
+                        padding: 0;
+                  }
+            }
+      }
+      .fl-flex
+      {
+            flex: 1;
+           
+      }
+      .fl-box
+      {
+            padding: $flBoxPadding;
+            box-sizing: border-box;
+            &.align-self-top
+            {
+                  align-self: flex-start
+            }
+            &.align-self-center
+            {
+                  align-self: center;
+            }
+            &.align-self-bottom
+            {
+                  align-self: flex-end
+            }
+            &.no-padding
+            {
+                  padding: 0;
+            }
+            &.justify-self-right
+            {
+                  margin-right: 0;
+                  margin-left: auto;
+            }
+            &.justify-self-left
+            {
+                  margin-left: 0;
+                  margin-right: auto;
+            }
+            &.justify-self-center
+            {
+                  margin-left: auto;
+                  margin-right: auto;
+            }
+
+      }
+      .fl-box-in
+      {
+
+            box-sizing: border-box;
+            padding:$flBoxPaddingIn;
+            &.no-padding
+            {
+                  padding: 0;
+            }
+      }
+}
+@mixin height-vp-sm()
+{
+      @for $i from 1 through 10
+      {
+            .vph-sm-#{$i*10} 
+            {
+                  min-height: $i*10vh;
+            }
+      }
+}
+@mixin height-vp-md()
+{
+      @for $i from 1 through 10
+      {
+            .vph-md-#{$i*10}
+            {
+                  min-height: $i*10vh;
+            }
+      }
+}
+@mixin height-vp-lg()
+{
+      @for $i from 1 through 10
+      {
+            .vph-lg-#{$i*10}
+            {
+                  min-height: $i*10vh;
+            }
+      }
+}
+@mixin height-vp-sp()
+{
+      @for $i from 1 through 10
+      {
+            .vph-sp-#{$i*10}
+            {
+                  min-height: $i*10vh;
+            }
+      }
+}
+@mixin height-vp-mg()
+{
+      @for $i from 1 through 10
+      {
+            .vph-mg-#{$i*10}
+            {
+                  min-height: $i*10vh;
+            }
+      }
+}
+@mixin height-vp-ut()
+{
+      @for $i from 1 through 10
+      {
+            .vph-ut-#{$i*10}
+            {
+                  min-height: $i*10vh;
+            }
+      }
+}
+@mixin wireframe()
+{
+      @if($wireframeStatus == 1)
+      {
+            body
+            {
+                  &#wireframe
+                  {
+                        outline: 1px solid $wireframeColor;
+                        .container
+                        {
+                              border: 1px solid $wireframeColorContainer	
+                        }
+                        .row
+                        {
+                              outline: 1px solid $wireframeColorRow;
+                              .fl-box
+                              {
+                                     outline: 1px solid $wireframeColorBBox;
+                              }
+                        }
+                        
+                  }
+                  &#wireframe-fill
+                  {
+                        background-color: $wireframeColor;
+                        .container
+                        {
+                              border: 1px solid $wireframeColorContainer	;
+                        }
+                        .row
+                        {
+                              outline: 1px solid $wireframeColorRow;	
+                              .fl-box
+                              {
+                                     background-color: $wireframeColorFBox;
+                                     color: $wireframeColor;
+                                     &.box-row
+                                    {
+                                          background-color: transparent;
+                                          outline: 1px solid $wireframeColorRow;	
+                                    }
+                              }
+                        }
+                       
+                  }
+            }
+      }
+
+
+}
+
+
+
+
+
+
