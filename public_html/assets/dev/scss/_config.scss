@@ -1,5 +1,7 @@
 $env: 'dev';
-$gap: 30px;
+$gap_none: 0;
+$gap_step: 10;
+
 $box:12;
 $bp:sm,md,lg,sp,mg,ut;
 $mediaQuery:480px,768px,1024px,1420px,1680px;
@@ -15,9 +17,10 @@ $Z_index:0,10;
 
 $wireframeColorContainer: #6666ff;
 $wireframeColorBBox: #111;
-$wireframeColorFBox: #333;
+$wireframeColorFBox: #444;
 $wireframeColor: #f8f8f8;
 $wireframeColorRow: #6666ff;
+$wireframeSectionColor: #eee;
 /*$wireframeColorLegend: #000;*/
 /*$wireframeFlex:  #111;*/
 
