@@ -18,6 +18,11 @@ and open the template in the editor.
                       section
                       {
                           padding: 30px 0;
+                          /*background-color: aquamarine*/
+                      }
+                      section.disp
+                      {
+                              /*background-color: yellowgreen*/
                       }
                       .fl-box
                       {
@@ -37,34 +42,34 @@ and open the template in the editor.
                       }
                 </style>
         </head>
-        <body id="wireframe" >
-                <section id="jt">
+        <body id="wireframe-fill" >
+                <div id="jt">
                         <div class="container fluid fill-height">
-                                <div class="row block justify-center align-center fill-height">
+                                <div class="row gap-0 block justify-center align-center fill-height">
                                         <div class="fl-box fl-sm-8">
                                                 <h2>jt</h2>
                                         </div>
                                 </div>
                         </div>
-                </section>
+                </div>
                 <section>
                         <div class="container fluid">
-                                <div class="row gap-50 block">
-                                        <div class="fl-box fl-sm-4">
+                                <div class="row wrap gap-sm-50 block">
+                                        <div class="fl-box fl-sm-4 fl-ut-4">
                                                 1
                                         </div>
-                                        <div class="fl-box fl-sm-4">
-                                                1
+                                        <div class="fl-box fl-sm-4  fl-ut-4">
+                                                2
                                         </div>
-                                        <div class="fl-box fl-sm-4">
-                                                1
+                                        <div class="fl-box fl-sm-4  fl-ut-4">
+                                                3
                                         </div>
                                 </div>
                         </div>
                 </section>
-                <section>
+                <section class="disp">
                         <div class="container fluid">
-                                <div class="row  gap-50 block">
+                                <div class="row  gap-sm-50 block">
                                         <div class="fl-box fl-sm-8">
                                                 1
                                         </div>
@@ -76,7 +81,7 @@ and open the template in the editor.
                 </section>
                 <section>
                         <div class="container fluid">
-                                <div class="row gap-50  block">
+                                <div class="row gap-sm-50 block">
                                         <div class="fl-box d fl-sm-3">
                                                 1
                                         </div>
@@ -92,15 +97,15 @@ and open the template in the editor.
                                 </div>
                         </div>
                 </section>
-                <section>
+                <footer>
                         <div class="container fluid">
                                 <div class="row block justify-center">
                                         <div class="fl-box fl-sm-8">
-                                                <h2>jt</h2>
+                                                <h2>footer</h2>
                                         </div>
                                 </div>
                         </div>
-                </section>
+                </footer>
                 
         </body>
 </html>

@@ -118,55 +118,49 @@
     @for $i from 1 through $box
     {
 
-        @for $y from 1 through $gap_step
+        @for $y from 0 through $gap_number
         {
             $the_step: $y*$gap_step;
-            .row.gap-#{$the_step}
+            .row.gap-sm-#{$the_step}
             {
                 $gap_m: #{calc(($box/$i - 1) * $the_step/($box/$i))}px;
-                .fl-sm-#{$i}
-                {
-                    width: calc(  ((100% / $box) * $i) - $gap_m);
-                    transition: all $transitionTime $transitionEasing;
-                }
+                .fl-sm-#{$i}{ width: calc(  ((100% / $box) * $i) - $gap_m);flex: inherit;}
+                .fl-flex-sm-#{$i}{flex: $i}
             }
-        }
-        .row
-        {
-            $gap_none: #{calc(($box/$i - 1) * $gap_none/($box/$i))}px;
-            .fl-sm-#{$i}
+            .row.no-gap
             {
-                width: calc(  ((100% / $box) * $i) - $gap_none);
-                transition: all $transitionTime $transitionEasing;
+                .fl-sm-#{$i}{ width: calc(  ((100% / $box) * $i));}
             }
         }
 
     }
     @for $i from 1 through $box
     {
-        @for $y from 1 through $gap_step
+        @for $y from 0 through $gap_number
         {
              $the_step_o: $y*$gap_step;
-            .row.gap-#{$the_step_o}
+            .row.gap-sm-#{$the_step_o}
             {
                  $gap_o: #{calc(($box/$i ) * $the_step_o/($box/$i))}px;
-                .fl-sm-offset-#{$i}
+                .fl-sm-offset-#{$i}{margin-left: calc(  ((100% / $box) * $i) + $gap_o/ ($box/$i));}
+                .fl-sm-offset-0{margin-left: 0; }
+                .fl-flex-sm-offset-#{$i}
                 {
-                    margin-left: calc(  ((100% / $box) * $i) + $gap_o/ ($box/$i));
-                    transition: all $transitionTime $transitionEasing;
+                    flex: $i;
+                    visibility: hidden
                 }
+                .fl-flex-sm-offset-0
+                {
+                    visibility: visible;
+                }
+                
             }
-        }
-        .row
-        {
-            $gap_none: #{calc(($box/$i ) * $gap_none/($box/$i))}px;
-            .fl-sm-offset-#{$i}
+            .row.no-gap
             {
-                margin-left: calc(  ((100% / $box) * $i) + $gap_none/ ($box/$i));
-                transition: all $transitionTime $transitionEasing;
+                .fl-sm-offset-#{$i}{margin-left: calc(  ((100% / $box) * $i));}
+                .fl-sm-offset-0{margin-left: 0; }
             }
         }
-
     }
     @for $i from 1 through $box
     {
@@ -175,67 +169,55 @@
             order: $i;
         }
     }
-    .fl-sm-offset-0
-    {
-        margin-left: 0;
-        transition: all $transitionTime $transitionEasing;
-    }
+   
 }
 @mixin box-medium()
 {
-
     @for $i from 1 through $box
     {
 
-        @for $y from 1 through $gap_step
+        @for $y from 0 through $gap_number
         {
             $the_step: $y*$gap_step;
-            .row.gap-#{$the_step}
+            .row.gap-md-#{$the_step}
             {
                 $gap_m: #{calc(($box/$i - 1) * $the_step/($box/$i))}px;
-                .fl-md-#{$i}
-                {
-                    width: calc(  ((100% / $box) * $i) - $gap_m);
-                    transition: all $transitionTime $transitionEasing;
-                }
+                .fl-md-#{$i}{ width: calc(  ((100% / $box) * $i) - $gap_m);flex: inherit;}
+                 .fl-flex-md-#{$i}{flex: $i}
             }
-        }
-        .row
-        {
-            $gap_none: #{calc(($box/$i - 1) * $gap_none/($box/$i))}px;
-            .fl-md-#{$i}
+            .row.no-gap
             {
-                width: calc(  ((100% / $box) * $i) - $gap_none);
-                transition: all $transitionTime $transitionEasing;
+                .fl-md-#{$i}{ width: calc(  ((100% / $box) * $i));}
             }
         }
 
     }
     @for $i from 1 through $box
     {
-        @for $y from 1 through $gap_step
+        @for $y from 0 through $gap_number
         {
              $the_step_o: $y*$gap_step;
-            .row.gap-#{$the_step_o}
+            .row.gap-md-#{$the_step_o}
             {
                  $gap_o: #{calc(($box/$i ) * $the_step_o/($box/$i))}px;
-                .fl-md-offset-#{$i}
+                .fl-md-offset-#{$i}{margin-left: calc(  ((100% / $box) * $i) + $gap_o/ ($box/$i));}
+                .fl-md-offset-0{margin-left: 0; }
+                .fl-flex-md-offset-#{$i}
                 {
-                    margin-left: calc(  ((100% / $box) * $i) + $gap_o/ ($box/$i));
-                    transition: all $transitionTime $transitionEasing;
+                    flex: $i;
+                    visibility: hidden
+                }
+                .fl-flex-md-offset-0
+                {
+                    visibility: visible;
                 }
             }
-        }
-        .row
-        {
-            $gap_none: #{calc(($box/$i ) * $gap_none/($box/$i))}px;
-            .fl-md-offset-#{$i}
+            .row.no-gap
             {
-                margin-left: calc(  ((100% / $box) * $i) + $gap_none/ ($box/$i));
-                transition: all $transitionTime $transitionEasing;
+                .fl-md-offset-#{$i}{margin-left: calc(  ((100% / $box) * $i));}
+                .fl-md-offset-0{margin-left: 0; }
             }
         }
-
     }
     @for $i from 1 through $box
     {
@@ -244,68 +226,55 @@
             order: $i;
         }
     }
-    .fl-md-offset-0
-    {
-        margin-left: 0;
-        transition: all $transitionTime $transitionEasing;
-    }
    
 }
 @mixin box-large()
 {
-
     @for $i from 1 through $box
     {
 
-        @for $y from 1 through $gap_step
+        @for $y from 0 through $gap_number
         {
             $the_step: $y*$gap_step;
-            .row.gap-#{$the_step}
+            .row.gap-lg-#{$the_step}
             {
                 $gap_m: #{calc(($box/$i - 1) * $the_step/($box/$i))}px;
-                .fl-lg-#{$i}
-                {
-                    width: calc(  ((100% / $box) * $i) - $gap_m);
-                    transition: all $transitionTime $transitionEasing;
-                }
+                .fl-lg-#{$i}{ width: calc(  ((100% / $box) * $i) - $gap_m);flex: inherit;}
+                 .fl-flex-lg-#{$i}{flex: $i}
             }
-        }
-        .row
-        {
-            $gap_none: #{calc(($box/$i - 1) * $gap_none/($box/$i))}px;
-            .fl-lg-#{$i}
+            .row.no-gap
             {
-                width: calc(  ((100% / $box) * $i) - $gap_none);
-                transition: all $transitionTime $transitionEasing;
+                .fl-lg-#{$i}{ width: calc(  ((100% / $box) * $i));}
             }
         }
 
     }
     @for $i from 1 through $box
     {
-        @for $y from 1 through $gap_step
+        @for $y from 0 through $gap_number
         {
              $the_step_o: $y*$gap_step;
-            .row.gap-#{$the_step_o}
+            .row.gap-lg-#{$the_step_o}
             {
                  $gap_o: #{calc(($box/$i ) * $the_step_o/($box/$i))}px;
-                .fl-lg-offset-#{$i}
+                .fl-lg-offset-#{$i}{margin-left: calc(  ((100% / $box) * $i) + $gap_o/ ($box/$i));}
+                .fl-lg-offset-0{margin-left: 0; }
+                .fl-flex-lg-offset-#{$i}
                 {
-                    margin-left: calc(  ((100% / $box) * $i) + $gap_o/ ($box/$i));
-                    transition: all $transitionTime $transitionEasing;
+                    flex: $i;
+                    visibility: hidden
+                }
+                .fl-flex-lg-offset-0
+                {
+                    visibility: visible;
                 }
             }
-        }
-        .row
-        {
-            $gap_none: #{calc(($box/$i ) * $gap_none/($box/$i))}px;
-            .fl-lg-offset-#{$i}
+            .row.no-gap
             {
-                margin-left: calc(  ((100% / $box) * $i) + $gap_none/ ($box/$i));
-                transition: all $transitionTime $transitionEasing;
+                .fl-lg-offset-#{$i}{margin-left: calc(  ((100% / $box) * $i));}
+                .fl-lg-offset-0{margin-left: 0; }
             }
         }
-
     }
     @for $i from 1 through $box
     {
@@ -314,68 +283,55 @@
             order: $i;
         }
     }
-    .fl-lg-offset-0
-    {
-        margin-left: 0;
-        transition: all $transitionTime $transitionEasing;
-    }
    
 }
 @mixin box-super()
 {
-
     @for $i from 1 through $box
     {
 
-        @for $y from 1 through $gap_step
+        @for $y from 0 through $gap_number
         {
             $the_step: $y*$gap_step;
-            .row.gap-#{$the_step}
+            .row.gap-sp-#{$the_step}
             {
                 $gap_m: #{calc(($box/$i - 1) * $the_step/($box/$i))}px;
-                .fl-sp-#{$i}
-                {
-                    width: calc(  ((100% / $box) * $i) - $gap_m);
-                    transition: all $transitionTime $transitionEasing;
-                }
+                .fl-sp-#{$i}{ width: calc(  ((100% / $box) * $i) - $gap_m);flex: inherit;}
+                 .fl-flex-sp-#{$i}{flex: $i}
             }
-        }
-        .row
-        {
-            $gap_none: #{calc(($box/$i - 1) * $gap_none/($box/$i))}px;
-            .fl-sp-#{$i}
+            .row.no-gap
             {
-                width: calc(  ((100% / $box) * $i) - $gap_none);
-                transition: all $transitionTime $transitionEasing;
+                .fl-sp-#{$i}{ width: calc(  ((100% / $box) * $i));}
             }
         }
 
     }
     @for $i from 1 through $box
     {
-        @for $y from 1 through $gap_step
+        @for $y from 0 through $gap_number
         {
              $the_step_o: $y*$gap_step;
-            .row.gap-#{$the_step_o}
+            .row.gap-sp-#{$the_step_o}
             {
                  $gap_o: #{calc(($box/$i ) * $the_step_o/($box/$i))}px;
-                .fl-sp-offset-#{$i}
+                .fl-sp-offset-#{$i}{margin-left: calc(  ((100% / $box) * $i) + $gap_o/ ($box/$i));}
+                .fl-sp-offset-0{margin-left: 0; }
+                .fl-flex-sp-offset-#{$i}
                 {
-                    margin-left: calc(  ((100% / $box) * $i) + $gap_o/ ($box/$i));
-                    transition: all $transitionTime $transitionEasing;
+                    flex: $i;
+                    visibility: hidden
+                }
+                .fl-flex-sp-offset-0
+                {
+                    visibility: visible;
                 }
             }
-        }
-        .row
-        {
-            $gap_none: #{calc(($box/$i ) * $gap_none/($box/$i))}px;
-            .fl-sp-offset-#{$i}
+            .row.no-gap
             {
-                margin-left: calc(  ((100% / $box) * $i) + $gap_none/ ($box/$i));
-                transition: all $transitionTime $transitionEasing;
+                .fl-sp-offset-#{$i}{margin-left: calc(  ((100% / $box) * $i));}
+                .fl-sp-offset-0{margin-left: 0; }
             }
         }
-
     }
     @for $i from 1 through $box
     {
@@ -384,68 +340,55 @@
             order: $i;
         }
     }
-    .fl-sp-offset-0
-    {
-        margin-left: 0;
-        transition: all $transitionTime $transitionEasing;
-    }
    
 }
 @mixin box-mega()
 {
-
     @for $i from 1 through $box
     {
 
-        @for $y from 1 through $gap_step
+        @for $y from 0 through $gap_number
         {
             $the_step: $y*$gap_step;
-            .row.gap-#{$the_step}
+            .row.gap-mg-#{$the_step}
             {
                 $gap_m: #{calc(($box/$i - 1) * $the_step/($box/$i))}px;
-                .fl-mg-#{$i}
-                {
-                    width: calc(  ((100% / $box) * $i) - $gap_m);
-                    transition: all $transitionTime $transitionEasing;
-                }
+                .fl-mg-#{$i}{ width: calc(  ((100% / $box) * $i) - $gap_m);flex: inherit;}
+                 .fl-flex-mg-#{$i}{flex: $i}
             }
-        }
-        .row
-        {
-            $gap_none: #{calc(($box/$i - 1) * $gap_none/($box/$i))}px;
-            .fl-mg-#{$i}
+            .row.no-gap
             {
-                width: calc(  ((100% / $box) * $i) - $gap_none);
-                transition: all $transitionTime $transitionEasing;
+                .fl-mg-#{$i}{ width: calc(  ((100% / $box) * $i));}
             }
         }
 
     }
     @for $i from 1 through $box
     {
-        @for $y from 1 through $gap_step
+        @for $y from 0 through $gap_number
         {
              $the_step_o: $y*$gap_step;
-            .row.gap-#{$the_step_o}
+            .row.gap-mg-#{$the_step_o}
             {
                  $gap_o: #{calc(($box/$i ) * $the_step_o/($box/$i))}px;
-                .fl-mg-offset-#{$i}
+                .fl-mg-offset-#{$i}{margin-left: calc(  ((100% / $box) * $i) + $gap_o/ ($box/$i));}
+                .fl-mg-offset-0{margin-left: 0; }
+                .fl-flex-mg-offset-#{$i}
                 {
-                    margin-left: calc(  ((100% / $box) * $i) + $gap_o/ ($box/$i));
-                    transition: all $transitionTime $transitionEasing;
+                    flex: $i;
+                    visibility: hidden
+                }
+                .fl-flex-mg-offset-0
+                {
+                    visibility: visible;
                 }
             }
-        }
-        .row
-        {
-            $gap_none: #{calc(($box/$i ) * $gap_none/($box/$i))}px;
-            .fl-mg-offset-#{$i}
+            .row.no-gap
             {
-                margin-left: calc(  ((100% / $box) * $i) + $gap_none/ ($box/$i));
-                transition: all $transitionTime $transitionEasing;
+                .fl-mg-offset-#{$i}{margin-left: calc(  ((100% / $box) * $i));}
+                .fl-mg-offset-0{margin-left: 0; }
             }
         }
-
     }
     @for $i from 1 through $box
     {
@@ -454,68 +397,55 @@
             order: $i;
         }
     }
-    .fl-mg-offset-0
-    {
-        margin-left: 0;
-        transition: all $transitionTime $transitionEasing;
-    }
    
 }
 @mixin box-ultra()
 {
-
     @for $i from 1 through $box
     {
 
-        @for $y from 1 through $gap_step
+        @for $y from 0 through $gap_number
         {
             $the_step: $y*$gap_step;
-            .row.gap-#{$the_step}
+            .row.gap-ut-#{$the_step}
             {
                 $gap_m: #{calc(($box/$i - 1) * $the_step/($box/$i))}px;
-                .fl-ut-#{$i}
-                {
-                    width: calc(  ((100% / $box) * $i) - $gap_m);
-                    transition: all $transitionTime $transitionEasing;
-                }
+                .fl-ut-#{$i}{ width: calc(  ((100% / $box) * $i) - $gap_m);flex: inherit;}
+                 .fl-flex-ut-#{$i}{flex: $i}
             }
-        }
-        .row
-        {
-            $gap_none: #{calc(($box/$i - 1) * $gap_none/($box/$i))}px;
-            .fl-ut-#{$i}
+            .row.no-gap
             {
-                width: calc(  ((100% / $box) * $i) - $gap_none);
-                transition: all $transitionTime $transitionEasing;
+                .fl-ut-#{$i}{ width: calc(  ((100% / $box) * $i));}
             }
         }
 
     }
     @for $i from 1 through $box
     {
-        @for $y from 1 through $gap_step
+        @for $y from 0 through $gap_number
         {
              $the_step_o: $y*$gap_step;
-            .row.gap-#{$the_step_o}
+            .row.gap-ut-#{$the_step_o}
             {
                  $gap_o: #{calc(($box/$i ) * $the_step_o/($box/$i))}px;
-                .fl-ut-offset-#{$i}
+                .fl-ut-offset-#{$i}{margin-left: calc(  ((100% / $box) * $i) + $gap_o/ ($box/$i));}
+                .fl-ut-offset-0{margin-left: 0; }
+                .fl-flex-ut-offset-#{$i}
                 {
-                    margin-left: calc(  ((100% / $box) * $i) + $gap_o/ ($box/$i));
-                    transition: all $transitionTime $transitionEasing;
+                    flex: $i;
+                    visibility: hidden
+                }
+                .fl-flex-ut-offset-0
+                {
+                    visibility: visible;
                 }
             }
-        }
-        .row
-        {
-            $gap_none: #{calc(($box/$i ) * $gap_none/($box/$i))}px;
-            .fl-ut-offset-#{$i}
+            .row.no-gap
             {
-                margin-left: calc(  ((100% / $box) * $i) + $gap_none/ ($box/$i));
-                transition: all $transitionTime $transitionEasing;
+                .fl-ut-offset-#{$i}{margin-left: calc(  ((100% / $box) * $i));}
+                .fl-ut-offset-0{margin-left: 0; }
             }
         }
-
     }
     @for $i from 1 through $box
     {
@@ -524,87 +454,14 @@
             order: $i;
         }
     }
-    .fl-ut-offset-0
-    {
-        margin-left: 0;
-        transition: all $transitionTime $transitionEasing;
-    }
    
 }
 /*#############################*/
 
-@mixin box-flex-sm()
-{
 
-    @for $i from 1 through $box
-    {
-        .fl-flex-sm-#{$i}
-        {
-            flex: $i;
-        }
-    }
 
-}
-@mixin box-flex-md()
-{
 
-    @for $i from 1 through $box
-    {
-        .fl-flex-md-#{$i}
-        {
-            flex: $i;
-        }
-    }
 
-}
-@mixin box-flex-lg()
-{
-
-    @for $i from 1 through $box
-    {
-        .fl-flex-lg-#{$i}
-        {
-            flex: $i;
-        }
-    }
-
-}
-@mixin box-flex-sp()
-{
-
-    @for $i from 1 through $box
-    {
-        .fl-flex-sp-#{$i}
-        {
-            flex: $i;
-        }
-    }
-
-}
-@mixin box-flex-mg()
-{
-
-    @for $i from 1 through $box
-    {
-        .fl-flex-mg-#{$i}
-        {
-            flex: $i;
-        }
-    }
-
-}
-@mixin box-flex-ut()
-{
-
-    @for $i from 1 through $box
-    {
-        .fl-flex-ut-#{$i}
-        {
-            flex: $i;
-        }
-    }
-
-}
 @mixin z-index()
 {
     $zStart:nth($Z_index,1);
@@ -622,7 +479,7 @@
 {
 
     @media only screen and (min-width:$mStart)
-        {
+    {
         .fl-#{$bp}-hidden
         {
             display: none;
@@ -650,7 +507,7 @@
         width: 100%;
         display: flex;
         flex-wrap: nowrap;
-        @for $y from 1 through $gap_step
+        @for $y from 0 through $gap_number
         {
             $the_step: $y*$gap_step;
             &.gap-#{$the_step}
@@ -676,11 +533,11 @@
         {
             justify-content: flex-end;
         }
-        &.space-around
+        &.space-around, &.justify-around
         {
             justify-content: space-around
         }
-        &.space-between
+        &.space-between,  &.justify-between
         {
             justify-content: space-between
         }
@@ -849,7 +706,7 @@
                     outline: 1px solid $wireframeColorRow;
                     .fl-box
                     {
-                        outline: 1px solid $wireframeColorBBox;
+                        outline: 1.5px solid $wireframeColorBBox;
                     }
                 }
 
@@ -857,13 +714,8 @@
             &#wireframe-fill
             {
                 background-color: $wireframeColor;
-                .container
-                {
-                    /*outline: 1px solid $wireframeColorContainer	;*/
-                }
                 .row
                 {
-                    /*outline: 1px solid $wireframeColorRow;*/
                     background-color: $wireframeColorRow;
                     .fl-box
                     {
@@ -872,7 +724,6 @@
                         &.box-row
                         {
                             background-color: $wireframeColorRow;
-                            /*outline: 1px solid $wireframeColorRow;*/
                         }
                     }
                 }

@@ -34,5 +34,15 @@ function cssFlexo(done)
     src([paths.dev_scss + 'flexo.scss']).pipe(sass()).pipe(concat('flexo.css')).pipe(cssmin()).pipe(rename({suffix: '.min'})).pipe(dest(paths.dist_css));
     done();
 }
+function cleanCssDevBox()
+{
+    return del([paths.dist_css + "test.min.css",]);
+}
+function cssDevBox(done) 
+{
+     src([paths.dev_scss + 'devbox.scss']).pipe(sass()).pipe(concat('devbox.css')).pipe(rename({suffix: '.min'})).pipe(dest(paths.dist_css));
+    done();
+}
 
 exports.cssFlexo  = series(cleanCssFlexo, parallel(cssFlexo));
+exports.cssDevbox  = series(cleanCssDevBox, parallel(cssDevBox));
