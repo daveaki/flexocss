@@ -61,7 +61,7 @@ ul
 @include text();
 @include images();
 @include z-index();
-@include box-small();
+@include boxMediaQuery(1);
 @include height-vp-sm();
 @include visibility(sm,0);
 @include visibility(md,nth($mediaQuery,1));
@@ -69,18 +69,6 @@ ul
 @include visibility(sp,nth($mediaQuery,3));
 @include visibility(mg,nth($mediaQuery,4));
 @include visibility(ut,nth($mediaQuery,5));
-.row
-{
-    @for $y from 0 through $gap_number
-    {
-        $the_step: $y*$gap_step;
-        &.gap-sm-#{$the_step}
-        {
-            gap:#{$the_step}px;
-        }
-
-    }
-}
 
 
 @media only screen and (min-width:nth($mediaQuery,1))
@@ -90,14 +78,14 @@ ul
         @for $y from 0 through $gap_number
         {
             $the_step: $y*$gap_step;
-            &.gap-md-#{$the_step}
+            &.gap-#{nth($bp,2)}-#{$the_step}
             {
                 gap:#{$the_step}px;
             }
 
         }
     }
-    @include box-medium();
+   @include boxMediaQuery(2);
     @include height-vp-md();
 
 }
@@ -108,14 +96,14 @@ ul
         @for $y from 0 through $gap_number
         {
             $the_step: $y*$gap_step;
-            &.gap-lg-#{$the_step}
+            &.gap-#{nth($bp,3)}-#{$the_step}
             {
                 gap:#{$the_step}px;
             }
 
         }
     }
-    @include box-large();
+    @include boxMediaQuery(3);
     @include height-vp-lg();
 }
 @media only screen and (min-width:nth($mediaQuery,3))
@@ -125,14 +113,14 @@ ul
         @for $y from 0 through $gap_number
         {
             $the_step: $y*$gap_step;
-            &.gap-sp-#{$the_step}
+            &.gap-#{nth($bp,4)}-#{$the_step}
             {
                 gap:#{$the_step}px;
             }
 
         }
     }
-    @include box-super();
+    @include boxMediaQuery(4);
     @include height-vp-sp();
 }
 @media only screen and (min-width:nth($mediaQuery,4))
@@ -142,7 +130,7 @@ ul
         @for $y from 0 through $gap_number
         {
             $the_step: $y*$gap_step;
-            &.gap-mg-#{$the_step}
+            &.gap-#{nth($bp,5)}-#{$the_step}
             {
                 gap:#{$the_step}px;
             }
@@ -162,7 +150,7 @@ ul
 
         }
     }
-    @include box-mega();
+    @include boxMediaQuery(5);
     @include height-vp-mg();
 }
 @media only screen and (min-width:nth($mediaQuery,5))
@@ -172,14 +160,14 @@ ul
         @for $y from 0 through $gap_number
         {
             $the_step: $y*$gap_step;
-            &.gap-ut-#{$the_step}
+            &.gap-#{nth($bp,6)}-#{$the_step}
             {
                 gap:#{$the_step}px;
             }
 
         }
     }
-    @include box-ultra();
+    @include boxMediaQuery(6);
     @include height-vp-ut();
 }
 
