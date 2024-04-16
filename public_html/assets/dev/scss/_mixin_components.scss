@@ -1,4 +1,4 @@
-@mixin positioningAndFill()
+@mixin positioningAndFilling()
 {
     .position-relative
     {
@@ -116,104 +116,162 @@
 
 @mixin boxMediaQuery($b)
 {
-        
-        @for $i from 1 through $box
-        {
 
-                @for $y from 0 through $gap_number
-                {
-                    $the_step: $y*$gap_step;
-                    .row.gap-#{nth($bp,$b)}-#{$the_step},
-                    {
-                        $gap_m: #{calc(($box/$i - 1) * $the_step/($box/$i))}px;
-                        >{.fl-#{nth($bp,$b)}-#{$i}{ width: calc(  ((100% / $box) * $i) - $gap_m);flex: inherit;}}
-                        >{.fl-flex-#{nth($bp,$b)}-#{$i}{flex: $i}}
-                    }
-                    
-                    .row.gap-#{$the_step} 
-                    {
-                        $gap_m: #{calc(($box/$i - 1) * $the_step/($box/$i))}px;
-                        >{.fl-#{nth($bp,$b)}-#{$i}{ width: calc(  ((100% / $box) * $i) - $gap_m);flex: inherit;}}
-                        >{.fl-flex-#{nth($bp,$b)}-#{$i}{flex: $i}}
-                    }
-                    .row.no-gap
-                    {
-                        >{.fl-#{nth($bp,$b)}-#{$i}{ width: calc(  ((100% / $box) * $i));}}
-                        >{.fl-flex-#{nth($bp,$b)}-#{$i}{flex: $i}}
+    @for $i from 1 through $box
+    {
+
+        @for $y from 0 through $gap_number
+        {
+            $the_step: $y*$gap_step;
+            .row.gap-#{nth($bp,$b)}-#{$the_step},
+            {
+                $gap_m: #{calc(($box/$i - 1) * $the_step/($box/$i))}px;
+                >{
+                    .fl-#{nth($bp,$b)}-#{$i}{
+                        width: calc(  ((100% / $box) * $i) - $gap_m);
+                        flex: inherit;
                     }
                 }
-
-        }
-        @for $i from 1 through $box
-        {
-                @for $y from 0 through $gap_number
-                {
-                     $the_step_o: $y*$gap_step;
-                    .row.gap-#{nth($bp,$b)}-#{$the_step_o}
-                    {
-                         $gap_o: #{calc(($box/$i ) * $the_step_o/($box/$i))}px;
-                        >{.fl-#{nth($bp,$b)}-offset-#{$i}{margin-left: calc(  ((100% / $box) * $i) + $gap_o/ ($box/$i));}}
-                        >{.fl-#{nth($bp,$b)}-offset-0{margin-left: 0; }}
-                        >{.fl-flex-#{nth($bp,$b)}-offset-#{$i}
-                        {
-                            flex: $i;
-                            visibility: hidden
-                        }}
-                        >{.fl-flex-#{nth($bp,$b)}-offset-0
-                        {
-                            visibility: visible;
-                        }}
-                    }
-                    .row.gap-#{$the_step_o}
-                    {
-                         $gap_o: #{calc(($box/$i ) * $the_step_o/($box/$i))}px;
-                        >{.fl-#{nth($bp,$b)}-offset-#{$i}{margin-left: calc(  ((100% / $box) * $i) + $gap_o/ ($box/$i));}}
-                        >{.fl-#{nth($bp,$b)}-offset-0{margin-left: 0; }}
-                        >{.fl-flex-#{nth($bp,$b)}-offset-#{$i}
-                        {
-                            flex: $i;
-                            visibility: hidden
-                        }}
-                        >{.fl-flex-#{nth($bp,$b)}-offset-0
-                        {
-                            visibility: visible;
-                        }}
-                    }
-                    .row.no-gap
-                    {
-                        >{.fl-#{nth($bp,$b)}-offset-#{$i}{margin-left: calc(  ((100% / $box) * $i));}}
-                        >{.fl-#{nth($bp,$b)}-offset-0{margin-left: 0; }}
-                        >{.fl-flex-#{nth($bp,$b)}-offset-#{$i}
-                        {
-                            flex: $i;
-                            visibility: hidden
-                        }}
-                        >{.fl-flex-#{nth($bp,$b)}-offset-0
-                        {
-                            visibility: visible;
-                        }}
+                >{
+                    .fl-flex-#{nth($bp,$b)}-#{$i}{
+                        flex: $i
                     }
                 }
+            }
+
+            .row.gap-#{$the_step}
+            {
+                $gap_m: #{calc(($box/$i - 1) * $the_step/($box/$i))}px;
+                >{
+                    .fl-#{nth($bp,$b)}-#{$i}{
+                        width: calc(  ((100% / $box) * $i) - $gap_m);
+                        flex: inherit;
+                    }
+                }
+                >{
+                    .fl-flex-#{nth($bp,$b)}-#{$i}{
+                        flex: $i
+                    }
+                }
+            }
+            .row.no-gap
+            {
+                >{
+                    .fl-#{nth($bp,$b)}-#{$i}{
+                        width: calc(  ((100% / $box) * $i));
+                    }
+                }
+                >{
+                    .fl-flex-#{nth($bp,$b)}-#{$i}{
+                        flex: $i
+                    }
+                }
+            }
         }
-        @for $i from 1 through $box
+
+    }
+    @for $i from 1 through $box
+    {
+        @for $y from 0 through $gap_number
         {
-            .fl-#{nth($bp,$b)}-order-#{$i}
+            $the_step_o: $y*$gap_step;
+            .row.gap-#{nth($bp,$b)}-#{$the_step_o}
             {
-                order: $i;
+                $gap_o: #{calc(($box/$i ) * $the_step_o/($box/$i))}px;
+                >{
+                    .fl-#{nth($bp,$b)}-offset-#{$i}{
+                        margin-left: calc(  ((100% / $box) * $i) + $gap_o/ ($box/$i));
+                    }
+                }
+                >{
+                    .fl-#{nth($bp,$b)}-offset-0{
+                        margin-left: 0;
+                    }
+                }
+                >{
+                    .fl-flex-#{nth($bp,$b)}-offset-#{$i}
+                    {
+                        flex: $i;
+                        visibility: hidden
+                    }
+                }
+                >{
+                    .fl-flex-#{nth($bp,$b)}-offset-0
+                    {
+                        visibility: visible;
+                    }
+                }
             }
-            .fl-flex-#{nth($bp,$b)}-order-#{$i}
+            .row.gap-#{$the_step_o}
             {
-                order: $i;
+                $gap_o: #{calc(($box/$i ) * $the_step_o/($box/$i))}px;
+                >{
+                    .fl-#{nth($bp,$b)}-offset-#{$i}{
+                        margin-left: calc(  ((100% / $box) * $i) + $gap_o/ ($box/$i));
+                    }
+                }
+                >{
+                    .fl-#{nth($bp,$b)}-offset-0{
+                        margin-left: 0;
+                    }
+                }
+                >{
+                    .fl-flex-#{nth($bp,$b)}-offset-#{$i}
+                    {
+                        flex: $i;
+                        visibility: hidden
+                    }
+                }
+                >{
+                    .fl-flex-#{nth($bp,$b)}-offset-0
+                    {
+                        visibility: visible;
+                    }
+                }
+            }
+            .row.no-gap
+            {
+                >{
+                    .fl-#{nth($bp,$b)}-offset-#{$i}{
+                        margin-left: calc(  ((100% / $box) * $i));
+                    }
+                }
+                >{
+                    .fl-#{nth($bp,$b)}-offset-0{
+                        margin-left: 0;
+                    }
+                }
+                >{
+                    .fl-flex-#{nth($bp,$b)}-offset-#{$i}
+                    {
+                        flex: $i;
+                        visibility: hidden
+                    }
+                }
+                >{
+                    .fl-flex-#{nth($bp,$b)}-offset-0
+                    {
+                        visibility: visible;
+                    }
+                }
             }
         }
-   
+    }
+    @for $i from 1 through $box
+    {
+        .fl-#{nth($bp,$b)}-order-#{$i}
+        {
+            order: $i;
+        }
+        .fl-flex-#{nth($bp,$b)}-order-#{$i}
+        {
+            order: $i;
+        }
+    }
+
 }
 
 /*#############################*/
-
-
-
-
 
 @mixin z-index()
 {
@@ -232,7 +290,7 @@
 {
 
     @media only screen and (min-width:$mStart)
-    {
+        {
         .fl-#{$bp}-hidden
         {
             display: none;
@@ -273,56 +331,6 @@
             }
         }
         
-        &.fluid
-        {
-            width: 100%;
-        }
-        &.justify-center
-        {
-            justify-content: center;
-        }
-        &.justify-left
-        {
-            justify-content: flex-start;
-        }
-        &.justify-right
-        {
-            justify-content: flex-end;
-        }
-        &.space-around, &.justify-around
-        {
-            justify-content: space-around
-        }
-        &.space-between,  &.justify-between
-        {
-            justify-content: space-between
-        }
-        &.align-center
-        {
-            align-items: center;
-
-        }
-        &.align-top,&.align-start
-        {
-            align-items: flex-start
-        }
-        &.align-bottom,&.align-end
-        {
-            align-items: flex-end;
-
-        }
-        &.wrap
-        {
-            flex-wrap: wrap
-        }
-        &.wrap-reverse
-        {
-            flex-wrap: wrap-reverse
-        }
-        &.row-reverse
-        {
-            flex-direction: row-reverse
-        }
         &.no-padding
         {
             .fl-box,.fl-box-in
@@ -330,32 +338,83 @@
                 padding: 0;
             }
         }
+        &.fluid
+        {
+            width: 100%;
+        }
     }
+    .justify-center
+    {
+        justify-content: center;
+    }
+    .justify-left
+    {
+        justify-content: flex-start;
+    }
+    .justify-right
+    {
+        justify-content: flex-end;
+    }
+    .space-around, .justify-around
+    {
+        justify-content: space-around
+    }
+    .space-between,  .justify-between
+    {
+        justify-content: space-between
+    }
+    .align-center
+    {
+        align-items: center;
+
+    }
+    .align-top,.align-start
+    {
+        align-items: flex-start
+    }
+    .align-bottom,.align-end
+    {
+        align-items: flex-end;
+
+    }
+    .wrap
+    {
+        flex-wrap: wrap
+    }
+    .wrap-reverse
+    {
+        flex-wrap: wrap-reverse
+    }
+    .row-reverse
+    {
+        flex-direction: row-reverse
+    }
+    
     .fl-flex
     {
         flex: 1;
-
+        &.flex
+        {
+            display: flex;
+        }
     }
     .fl-box
     {
         padding: $flBoxPadding;
         box-sizing: border-box;
-        &.align-self-top
+        .align-self-top
         {
             align-self: flex-start
         }
-        &.align-self-center
+        .align-self-center
         {
             align-self: center;
         }
-        &.align-self-bottom
+        .align-self-bottom
         {
             align-self: flex-end
         }
-        &.no-padding
-        {
-            padding: 0;
-        }
+        
         &.justify-self-right
         {
             margin-right: 0;
@@ -371,11 +430,17 @@
             margin-left: auto;
             margin-right: auto;
         }
+        
+        &.flex
+        {
+            display: flex;
+        }
+        
+        
 
     }
     .fl-box-in
     {
-
         box-sizing: border-box;
         padding:$flBoxPaddingIn;
         &.no-padding
@@ -489,6 +554,16 @@
                     outline: 1px solid #ccc;
                 }
 
+            }
+            @for $j from 1 through 5
+            {
+                &.border-#{$j}
+                {
+                    .fl-box
+                    {
+                        outline: #{$j}px solid #fff;
+                    }
+                }
             }
         }
     }

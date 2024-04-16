@@ -12,15 +12,8 @@ body,html
     {
         max-width: 100vw;
         overflow-x: hidden;
-
     }
-    &.border
-    {
-        .fl-box
-        {
-            border: 1px solid #fff;
-        }
-    }
+    
 }
 *
 {
@@ -30,10 +23,10 @@ body,html
 {
     div
     {
-        transition: width $transitionTime $transitionEasing,
+            transition: width $transitionTime $transitionEasing,
             margin-left $transitionTime $transitionEasing,
-            min-height $transitionTime $transitionEasing,
-            flex $transitionTime $transitionEasing;
+            flex $transitionTime $transitionEasing,
+            min-height $transitionTime $transitionEasing;
     }
 
 }
@@ -53,11 +46,15 @@ ul
     padding: 0;
     margin: 0;
 }
+li
+{
+    list-style: none;
+}
 
 
 
 @include flexBox();
-@include positioningAndFill();
+@include positioningAndFilling();
 @include text();
 @include images();
 @include z-index();
@@ -85,7 +82,7 @@ ul
 
         }
     }
-   @include boxMediaQuery(2);
+    @include boxMediaQuery(2);
     @include height-vp-md();
 
 }
@@ -172,8 +169,7 @@ ul
 }
 
 
-
-//######################## WIREFRAME MODULE !SOLO DEV!########################
+//######################## WIREFRAME MODULE ########################
 @if($env == 'dev')
 {
     @include wireframe();
