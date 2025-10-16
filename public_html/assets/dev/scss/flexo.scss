@@ -1,24 +1,10 @@
 /* CSS Flexo */
 @import "_config.scss";
 @import "_mixin_components.scss";
+@import "_reset.scss";
 
 
-body,html
-{
-    margin: 0;
-    padding: 0;
-    position: relative;
-    @if($containerOverflowX_hidden == 1)
-    {
-        max-width: 100vw;
-        overflow-x: hidden;
-    }
-    
-}
-*
-{
-    box-sizing: border-box;
-}
+
 @if($transition)
 {
     div
@@ -52,121 +38,14 @@ li
 }
 
 
-
-@include flexBox();
+@include flexScaffold($bp, $mediaQuery, $box);
+@include flexUtils;
 @include positioningAndFilling();
-@include text();
-@include images();
-@include z-index();
-@include boxMediaQuery(1);
-@include height-vp-sm();
-@include visibility(sm,0);
-@include visibility(md,nth($mediaQuery,1));
-@include visibility(lg,nth($mediaQuery,2));
-@include visibility(sp,nth($mediaQuery,3));
-@include visibility(mg,nth($mediaQuery,4));
-@include visibility(ut,nth($mediaQuery,5));
-
-
-@media only screen and (min-width:nth($mediaQuery,1))
-{
-    .row
-    {
-        @for $y from 0 through $gap_number
-        {
-            $the_step: $y*$gap_step;
-            &.gap-#{nth($bp,2)}-#{$the_step}
-            {
-                gap:#{$the_step}px;
-            }
-
-        }
-    }
-    @include boxMediaQuery(2);
-    @include height-vp-md();
-
-}
-@media only screen and (min-width:nth($mediaQuery,2))
-{
-    .row
-    {
-        @for $y from 0 through $gap_number
-        {
-            $the_step: $y*$gap_step;
-            &.gap-#{nth($bp,3)}-#{$the_step}
-            {
-                gap:#{$the_step}px;
-            }
-
-        }
-    }
-    @include boxMediaQuery(3);
-    @include height-vp-lg();
-}
-@media only screen and (min-width:nth($mediaQuery,3))
-{
-    .row
-    {
-        @for $y from 0 through $gap_number
-        {
-            $the_step: $y*$gap_step;
-            &.gap-#{nth($bp,4)}-#{$the_step}
-            {
-                gap:#{$the_step}px;
-            }
-
-        }
-    }
-    @include boxMediaQuery(4);
-    @include height-vp-sp();
-}
-@media only screen and (min-width:nth($mediaQuery,4))
-{
-    .row
-    {
-        @for $y from 0 through $gap_number
-        {
-            $the_step: $y*$gap_step;
-            &.gap-#{nth($bp,5)}-#{$the_step}
-            {
-                gap:#{$the_step}px;
-            }
-
-        }
-    }
-    .container
-    {
-        width: nth($mediaQuery,4);
-        .row
-        {
-            &.block
-            {
-                width: nth($mediaQuery,4);
-                margin: auto;
-            }
-
-        }
-    }
-    @include boxMediaQuery(5);
-    @include height-vp-mg();
-}
-@media only screen and (min-width:nth($mediaQuery,5))
-{
-    .row
-    {
-        @for $y from 0 through $gap_number
-        {
-            $the_step: $y*$gap_step;
-            &.gap-#{nth($bp,6)}-#{$the_step}
-            {
-                gap:#{$the_step}px;
-            }
-
-        }
-    }
-    @include boxMediaQuery(6);
-    @include height-vp-ut();
-}
+@include textUtils($bp, $mediaQuery);
+@include imagesUtils();
+@include zIndexUtils();
+@include vpUtils(1);
+@include visibilityUtils($bp, $mediaQuery);
 
 
 //######################## WIREFRAME MODULE ########################

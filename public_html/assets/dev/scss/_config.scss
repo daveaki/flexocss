@@ -1,30 +1,56 @@
 $env: 'dev';
-$gap_none: 0;
-$gap_step: 15;
-$gap_number: 4;
 
-$box:12;
-$bp:sm,md,lg,sp,mg,ut;
-$mediaQuery:480px,768px,1024px,1420px,1860px;
+/*#######font########*/
+$fontFamily: Georgia, Arial, sans-serif;
+$fontWeightRegular: 400;
+$fontWeightBold: 600;
+$fontWeightBlack: 800;
+$fontWeightLight: 200;
+
+/*#######scaffolding########*/
+$gapStep: 8;
+$gapNumber: 10;
+$gapStepArea: 20;
+$gapNumberArea: 10;
+$box:16;
+$bp:sm,md,lg,sp,mg;
+$containerBlock:1420px;
+$mediaQuery:620px,1024px,1460px,1780px;
 $mediaQueryMAX:5000px;
 $flBoxPadding:0;
-$flBoxPaddingIn:10px 10px;
-$startFlexWidth:8.333333333;
+$flBoxPaddingIn:8px 8px;
+$paddingArea: 20px,30px,50px,80px,110px;
+
+/*#######transition########*/
 $transition:true;
 $transitionTime:400ms;
 $transitionEasing:ease-in-out;
-$containerOverflowX_hidden:1;
-$Z_index:0,10;
 
-$wireframeColorContainer: #6666ff;
-$wireframeColorBBox: #111;
-$wireframeColorFBox: #444;
-$wireframeColor: #f8f8f8;
-$wireframeColorRow: #6666ff;
-$wireframeSectionColor: #eee;
-/*$wireframeColorLegend: #000;*/
-/*$wireframeFlex:  #111;*/
-
-$wireframeStatus:1
+/*#######utilities########*/
+$containerOverflowXHidden:1;
+$zIndex:0,10;
 
 
+
+/*#######wireframe########*/
+$wireframeBorderRadiusContainer: 0px;
+$wireframeBorderRadiusRow: 1px;
+$wireframeBorderRadiusBox: 1px;
+/*ouline*/
+$wireframeOutlineContainer: #1f2640;
+$wireframeOutlineRow: #aa41c8;
+$wireframeOutlineBox: #3f4b80;
+$wireframeOutlineBgBox: #e9eeff;
+
+/*fill*/
+$wireframeBgColorBox:#7d96ff;
+$wireframeBgColorRow: #aa41c8;
+$wireframeBgColorContainer: #1f2640;
+$wireframeBorderColorOnFill: #e9eeff;
+
+/*info*/
+$wireframeFontFamily: Trebuchet MS, sans-serif;
+$wireframeBgColorInfo:#1f2640;
+$wireframeColorInfo:#e9eeff;
+$wireframeFontSizeInfo:14px;
+$wireframeInfoFontSize: 13px;
