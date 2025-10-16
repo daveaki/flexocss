@@ -1,4 +1,6 @@
-
+@use "sass:list";
+@use "sass:math";
+@use "config" as cfg;
 
 
 // ==================================================================
@@ -6,22 +8,22 @@
 // Primo BP = base (nessuna media-query)
 //
 // Richiede variabili già definite:
-// $bp: sm,md,lg,sp,mg;
+// cfg.$bp: sm,md,lg,sp,mg;
 // $mediaQuery: 768px,1024px,1420px,1760px; // <-- niente 480px
-// $box, $gapStep, $gapNumber, $containerBlock, $mediaQueryMAX,
-// $flBoxPadding, $flBoxPaddingIn
+// $box, cfg.$gapStep, cfg.$gapNumber, cfg.$containerBlock, cfg.$mediaQueryMAX,
+// cfg.$flBoxPadding, cfg.$flBoxPaddingIn
 // ==================================================================
 // ====================scaffolding=======================================
 @mixin flexScaffold($bps:$bp, $mqs:$mediaQuery, $units:$box)
 {
-    $bp-count: length($bps);
-    $mq-count: length($mqs);
-    $base: nth($bps, 1);
+    $bp-count: list.length($bps);
+    $mq-count: list.length($mqs);
+    $base:  list.nth($bps, 1);
     $pairs: min($bp-count - 1, $mq-count);
     .container
     {
         box-sizing: border-box;
-        max-width: $containerBlock;
+        max-width: cfg.$containerBlock;
         margin-inline: auto; /* centrare sempre */
         &.fluid
         {
@@ -35,7 +37,7 @@
         flex-wrap: wrap;
         gap: var(--g);
         box-sizing: border-box;
-        max-width: $containerBlock;
+        max-width: cfg.$containerBlock;
         margin-inline: auto; /* centrare sempre */
     }
     .row.fluid
@@ -45,14 +47,14 @@
     .fl-box
     {
         box-sizing: border-box;
-        padding: $flBoxPadding;
+        padding: cfg.$flBoxPadding;
         min-width: 0;
         flex: 0 0 auto;
     }
     .fl-box-in
     {
         box-sizing: border-box;
-        padding: $flBoxPaddingIn;
+        padding: cfg.$flBoxPaddingIn;
         min-width: 0;
         flex: 0 0 auto;
     }
@@ -63,32 +65,32 @@
     }
     .area
     {
-        padding: #{nth($paddingArea, 1)} 0;
+        padding: #{ list.nth(cfg.$paddingArea, 1)} 0;
     }
     
     /* =====area utilities ===== */
     @for $b from 1 through $pairs
     {
-        $mqA: nth($mqs, $b);
-        @media (min-width: $mqA) and (max-width: $mediaQueryMAX)
+        $mqA:  list.nth($mqs, $b);
+        @media (min-width: $mqA) and (max-width: cfg.$mediaQueryMAX)
         {
              .area
             {
-                padding: #{nth($paddingArea, $b+1)} 0;
+                padding: #{ list.nth(cfg.$paddingArea, $b+1)} 0;
             }
         }
             
     }
-    @for $a from 0 through $gapNumberArea
+    @for $a from 0 through cfg.$gapNumberArea
     {
         .area-#{$a}
         {
             padding: #{$a}px 0;
         }
     }
-    @for $a from 0 through $gapNumberArea
+    @for $a from 0 through cfg.$gapNumberArea
     {
-        $p: $gapStepArea * $a;
+        $p: cfg.$gapStepArea * $a;
         
         .area-#{$base}-#{$p}
         {
@@ -97,15 +99,15 @@
     }
     @for $b from 1 through $pairs
     {
-        $name: nth($bps, $b + 1);
+        $name:  list.nth($bps, $b + 1);
         // md, lg, sp, mg...
-        $mq: nth($mqs, $b);
+        $mq:  list.nth($mqs, $b);
         // 768, 1024, 1420, 1760...
-        @media (min-width: $mq) and (max-width: $mediaQueryMAX)
+        @media (min-width: $mq) and (max-width: cfg.$mediaQueryMAX)
         {
-            @for $a from 0 through $gapNumberArea
+            @for $a from 0 through cfg.$gapNumberArea
             {
-                $p: $gapStepArea * $a;
+                $p: cfg.$gapStepArea * $a;
                 
                 .area-#{$name}-#{$p}
                 {
@@ -118,18 +120,18 @@
     
     
      /* =====GAP OFFSET utilities ===== */
-    @for $y from 0 through $gapNumber
+    @for $y from 0 through cfg.$gapNumber
     {
-        $g: $gapStep * $y;
+        $g: cfg.$gapStep * $y;
         .row.gap-#{$g}
         {
             --g: #{$g}px;
             gap: #{$g}px;
         }
     }
-    @for $y from 0 through $gapNumber
+    @for $y from 0 through cfg.$gapNumber
     {
-        $g: $gapStep * $y;
+        $g: cfg.$gapStep * $y;
         .row.gap-#{$base}-#{$g}
         {
             --g: #{$g}px;
@@ -139,15 +141,15 @@
     /* 3) Breakpoint successivi (una sola @media per BP) */
     @for $b from 1 through $pairs
     {
-        $name: nth($bps, $b + 1);
+        $name:  list.nth($bps, $b + 1);
         // md, lg, sp, mg...
-        $mq: nth($mqs, $b);
+        $mq:  list.nth($mqs, $b);
         // 768, 1024, 1420, 1760...
-        @media (min-width: $mq) and (max-width: $mediaQueryMAX)
+        @media (min-width: $mq) and (max-width: cfg.$mediaQueryMAX)
         {
-            @for $y from 0 through $gapNumber
+            @for $y from 0 through cfg.$gapNumber
             {
-                $g: $gapStep * $y;
+                $g: cfg.$gapStep * $y;
                 .row.gap-#{$name}-#{$g}
                 {
                     --g: #{$g}px;
@@ -161,7 +163,7 @@
     /* Base (sm) e unprefixed */
     @for $i from 1 through $units
     {
-        $k: $units / $i; /* elementi per riga quando ogni item occupa $i unità */
+        $k: math.div($units,$i); /* elementi per riga quando ogni item occupa $i unità */
 
         .fl-#{$i},
         .fl-#{$base}-#{$i}
@@ -178,14 +180,14 @@
     /* Breakpoint successivi (ordine crescente → override garantito) */
     @for $b from 1 through $pairs
     {
-        $name: nth($bps, $b + 1);
-        $mq: nth($mqs, $b);
+        $name:  list.nth($bps, $b + 1);
+        $mq:  list.nth($mqs, $b);
 
-        @media (min-width: $mq) and (max-width: $mediaQueryMAX)
+        @media (min-width: $mq) and (max-width: cfg.$mediaQueryMAX)
             {
             @for $i from 1 through $units
             {
-                $k: $units / $i;
+                $k: math.div($units,$i);
                 .fl-#{$name}-#{$i}
                 {
                     width:     calc(((100% / #{$units}) * #{$i}) - ((#{$k - 1} / #{$k}) * var(--g)));
@@ -226,10 +228,10 @@
     /* Breakpoint successivi — includo anche offset-0 */
     @for $b from 1 through $pairs
     {
-        $name: nth($bps, $b + 1);
-        $mq: nth($mqs, $b);
+        $name:  list.nth($bps, $b + 1);
+        $mq:  list.nth($mqs, $b);
 
-        @media (min-width: $mq) and (max-width: $mediaQueryMAX)
+        @media (min-width: $mq) and (max-width: cfg.$mediaQueryMAX)
             {
             @for $o from 0 through $units - 1
             {
@@ -393,11 +395,11 @@
         align-items: center;
     }
 }
-@mixin flexUtils($bps:$bp, $mqs:$mediaQuery)
+@mixin flexUtils($bps:cfg.$bp, $mqs:cfg.$mediaQuery)
 {
-    $bp-count: length($bps);
-    $mq-count: length($mqs);
-    $base: nth($bps, 1);
+    $bp-count:  list.length($bps);
+    $mq-count:  list.length($mqs);
+    $base:  list.nth($bps, 1);
     // es: sm
     $pairs: min($bp-count - 1, $mq-count);
     // md.. ↔ 768..
@@ -410,11 +412,11 @@
 
     /* 3) breakpoints successivi in @media → fl-md-..., fl-lg-..., ... */
     @for $b from 1 through $pairs {
-        $name: nth($bps, $b + 1);
+        $name:  list.nth($bps, $b + 1);
         // md, lg, sp, mg...
-        $mq: nth($mqs, $b);
+        $mq:  list.nth($mqs, $b);
         // 768, 1024, 1420, 1760...
-        @media (min-width: $mq) and (max-width: $mediaQueryMAX) {
+        @media (min-width: $mq) and (max-width: cfg.$mediaQueryMAX) {
             @include _emitFlexUtils("fl-#{$name}-");
         }
     }
@@ -521,11 +523,11 @@
         height: 100%;
     }
 }
-@mixin textUtils($bps:$bp, $mqs:$mediaQuery)
+@mixin textUtils($bps:cfg.$bp, $mqs:cfg.$mediaQuery)
 {
-    $bp-count: length($bps);
-    $mq-count: length($mqs);
-    $base: nth($bps, 1);
+    $bp-count:  list.length($bps);
+    $mq-count:  list.length($mqs);
+    $base:  list.nth($bps, 1);
     // es: sm
     $pairs: min($bp-count - 1, $mq-count);
     // md.. ↔ 768..
@@ -561,12 +563,12 @@
     // Breakpoint successivi → .fl-md-text-*, .fl-lg-text-*, ...
     @for $b from 1 through $pairs
     {
-        $name: nth($bps, $b + 1);
+        $name:  list.nth($bps, $b + 1);
         // md, lg, sp, mg...
-        $mq: nth($mqs, $b);
+        $mq:  list.nth($mqs, $b);
         // 768, 1024, 1420, 1760...
 
-        @media (min-width: $mq) and (max-width: $mediaQueryMAX) {
+        @media (min-width: $mq) and (max-width: cfg.$mediaQueryMAX) {
             .fl-#{$name}-text-left    {
                 text-align: left;
             }
@@ -609,8 +611,8 @@
 }
 @mixin zIndexUtils()
 {
-    $zStart:nth($zIndex,1);
-    $zEnd:nth($zIndex,2);
+    $zStart: list.nth(cfg.$zIndex,1);
+    $zEnd: list.nth(cfg.$zIndex,2);
     @for $zStart from $zStart through $zEnd
     {
         .z-index-#{$zStart}
@@ -622,12 +624,12 @@
 }
 // Utils visibilità responsive
 // Primo BP = base (nessuna media-query)
-// Richiede le tue variabili: $bp (es: sm,md,lg,sp,mg) e $mediaQuery (es: 768px,1024px,1420px,1760px)
-@mixin visibilityUtils($bps:$bp, $mqs:$mediaQuery)
+// Richiede le tue variabili: cfg.$bp (es: sm,md,lg,sp,mg) e $mediaQuery (es: 768px,1024px,1420px,1760px)
+@mixin visibilityUtils($bps:cfg.$bp, $mqs:cfg.$mediaQuery)
 {
-    $bp-count: length($bps);
-    $mq-count: length($mqs);
-    $base: nth($bps, 1);
+    $bp-count:  list.length($bps);
+    $mq-count:  list.length($mqs);
+    $base:  list.nth($bps, 1);
     // es: sm
     $pairs: min($bp-count - 1, $mq-count);
     // md.. ↔ 768..
@@ -674,12 +676,12 @@
 
     /* --- Breakpoint successivi in @media → fl-md-*, fl-lg-*, ... --- */
     @for $b from 1 through $pairs {
-        $name: nth($bps, $b + 1);
+        $name:  list.nth($bps, $b + 1);
         // md, lg, sp, mg...
-        $mq: nth($mqs, $b);
+        $mq:  list.nth($mqs, $b);
         // 768, 1024, 1420, 1760...
 
-        @media (min-width: $mq) and (max-width: $mediaQueryMAX) {
+        @media (min-width: $mq) and (max-width: cfg.$mediaQueryMAX) {
             .fl-#{$name}-hidden              {
                 display: none !important;
             }
@@ -705,7 +707,7 @@
 {
     @for $i from 1 through 10
     {
-        .fl-#{nth($bp,$b)}-hvp-#{$i*10}
+        .fl-#{ list.nth(cfg.$bp,$b)}-hvp-#{$i*10}
         {
             min-height: $i*10vh;
         }
@@ -719,7 +721,7 @@
 // Usare solo in sviluppo
 @mixin wireframe()
 {
-    @if($env == 'dev')
+    @if(cfg.$env == 'dev')
     {
         body
         {
@@ -728,18 +730,18 @@
 
                 .container
                 {
-                    outline: 1px solid $wireframeOutlineContainer;
-                    border-radius: $wireframeBorderRadiusContainer;
+                    outline: 1px solid cfg.$wireframeOutlineContainer;
+                    border-radius: cfg.$wireframeBorderRadiusContainer;
                 }
                 .row
                 {
-                    outline: 1px solid $wireframeOutlineRow;
-                    border-radius: $wireframeBorderRadiusRow;
+                    outline: 1px solid cfg.$wireframeOutlineRow;
+                    border-radius: cfg.$wireframeBorderRadiusRow;
                     .fl-box
                     {
-                        outline: 1px solid $wireframeOutlineBox;
-                        background-color: $wireframeOutlineBgBox;
-                        border-radius: $wireframeBorderRadiusBox;
+                        outline: 1px solid cfg.$wireframeOutlineBox;
+                        background-color: cfg.$wireframeOutlineBgBox;
+                        border-radius: cfg.$wireframeBorderRadiusBox;
                     }
                 }
                 &.fill
@@ -747,38 +749,38 @@
                     .container
                     {
                         outline: none;
-                        background-color: $wireframeBgColorContainer;
+                        background-color: cfg.$wireframeBgColorContainer;
                     }
 
                     .row
                     {
-                        background-color: $wireframeBgColorRow;
+                        background-color: cfg.$wireframeBgColorRow;
                         outline: none;
                         .fl-box
                         {
-                            background-color: $wireframeBgColorBox;
+                            background-color: cfg.$wireframeBgColorBox;
                             outline: none;
                         }
                     }
                 }
                 &.info
                 {
-                    @for $z from 1 through $box
+                    @for $z from 1 through cfg.$box
                     {
                         .fl-box
                         {
-                            font-family: $wireframeFontFamily !important;
+                            font-family: cfg.$wireframeFontFamily !important;
                             position: relative;
 
-                            &.fl-#{nth($bp,1)}-#{$z}::before,
-                            &.fl-flex-#{nth($bp,1)}-#{$z}::before,
+                            &.fl-#{ list.nth(cfg.$bp,1)}-#{$z}::before,
+                            &.fl-flex-#{ list.nth(cfg.$bp,1)}-#{$z}::before,
                             &.fl-#{$z}::before
                             {
-                                content: "*#{nth($bp,1)} - #{$z}";
+                                content: "*#{ list.nth(cfg.$bp,1)} - #{$z}";
                                 z-index: 9999;
-                                background-color: $wireframeBgColorInfo;
-                                color: $wireframeColorInfo;
-                                font-size: $wireframeInfoFontSize;
+                                background-color: cfg.$wireframeBgColorInfo;
+                                color: cfg.$wireframeColorInfo;
+                                font-size: cfg.$wireframeInfoFontSize;
                                 width: 50px;
                                 height: 20px;
                                 text-align: center;
@@ -787,26 +789,26 @@
                                 align-items: center;
                                 position: absolute;
                             }
-                            &.fl-flex-#{nth($bp,1)}-#{$z}::before
+                            &.fl-flex-#{ list.nth(cfg.$bp,1)}-#{$z}::before
                             {
-                                content: "*#{nth($bp,1)} flex - #{$z}";
+                                content: "*#{ list.nth(cfg.$bp,1)} flex - #{$z}";
                                 width: 75px;
                             }
                             &.fl-#{$z}::before
                             {
-                                content: "*#{nth($bp,1)}  #{$z} / #{$box}" ;
+                                content: "*#{ list.nth(cfg.$bp,1)}  #{$z} / #{cfg.$box}" ;
                                 width: 75px;
                             }
 
-                            &.fl-#{nth($bp,1)}-offset-#{$z}::after,
-                            &.fl-flex-#{nth($bp,1)}-offset-#{$z}::after,
+                            &.fl-#{ list.nth(cfg.$bp,1)}-offset-#{$z}::after,
+                            &.fl-flex-#{ list.nth(cfg.$bp,1)}-offset-#{$z}::after,
                             &.fl-offset-#{$z}::after
                             {
                                 content: "*oft - #{$z}";
                                 z-index: 9999;
-                                background-color: $wireframeBgColorInfo;
-                                color: $wireframeColorInfo;
-                                font-size: $wireframeInfoFontSize;
+                                background-color: cfg.$wireframeBgColorInfo;
+                                color: cfg.$wireframeColorInfo;
+                                font-size: cfg.$wireframeInfoFontSize;
                                 width: 50px;
                                 height: 25px;
                                 text-align: center;
@@ -821,24 +823,24 @@
 
                         }
                     }
-                    @for $x from 1 through length($mediaQuery)
+                    @for $x from 1 through  list.length(cfg.$mediaQuery)
                     {
-                        @media only screen and (min-width:nth($mediaQuery,$x))
+                        @media only screen and (min-width: list.nth(cfg.$mediaQuery,$x))
                             {
 
-                            @for $w from 1 through $box
+                            @for $w from 1 through cfg.$box
                             {
                                 .fl-box
                                 {
-                                    &.fl-#{nth($bp,$x+1)}-#{$w}::before,
-                                    &.fl-flex-#{nth($bp,$x+1)}-#{$w}::before,
+                                    &.fl-#{ list.nth(cfg.$bp,$x+1)}-#{$w}::before,
+                                    &.fl-flex-#{ list.nth(cfg.$bp,$x+1)}-#{$w}::before,
                                     &.fl-#{$w}::before
                                     {
-                                        content: "*#{nth($bp,$x+1)} - #{$w}";
+                                        content: "*#{ list.nth(cfg.$bp,$x+1)} - #{$w}";
                                         z-index: 9999;
-                                        background-color: $wireframeBgColorInfo;
-                                        color: $wireframeColorInfo;
-                                        font-size: $wireframeInfoFontSize;
+                                        background-color: cfg.$wireframeBgColorInfo;
+                                        color: cfg.$wireframeColorInfo;
+                                        font-size: cfg.$wireframeInfoFontSize;
                                         width: 50px;
                                         height: 20px;
                                         text-align: center;
@@ -847,26 +849,26 @@
                                         align-items: center;
                                         position: absolute
                                     }
-                                    &.fl-flex-#{nth($bp,$x+1)}-#{$w}::before
+                                    &.fl-flex-#{ list.nth(cfg.$bp,$x+1)}-#{$w}::before
                                     {
-                                        content: "*#{nth($bp,$x+1)} flex - #{$w}";
+                                        content: "*#{ list.nth(cfg.$bp,$x+1)} flex - #{$w}";
                                         width: 75px;
                                     }
                                     &.fl-#{$w}::before
                                     {
-                                        content: "*#{nth($bp,$x+1)}   #{$w} / #{$box}";
+                                        content: "*#{ list.nth(cfg.$bp,$x+1)}   #{$w} / #{cfg.$box}";
                                         width: 75px;
                                     }
 
-                                    &.fl-#{nth($bp,$x+1)}-offset-#{$w}::after,
-                                    &.fl-flex-#{nth($bp,$x+1)}-offset-#{$w}::after,
+                                    &.fl-#{ list.nth(cfg.$bp,$x+1)}-offset-#{$w}::after,
+                                    &.fl-flex-#{ list.nth(cfg.$bp,$x+1)}-offset-#{$w}::after,
                                     &.fl-offset-#{$w}::after
                                     {
                                         content: "*oft - #{$w}";
                                         z-index: 9999;
-                                        background-color: $wireframeBgColorInfo;
-                                        color: $wireframeColorInfo;
-                                        font-size: $wireframeInfoFontSize;
+                                        background-color: cfg.$wireframeBgColorInfo;
+                                        color: cfg.$wireframeColorInfo;
+                                        font-size: cfg.$wireframeInfoFontSize;
                                         width: 50px;
                                         height: 20px;
                                         text-align: center;
@@ -881,15 +883,15 @@
                             }
                             .fl-box
                             {
-                                &.fl-#{nth($bp,$x+1)}-offset-0::after,
-                                &.fl-flex-#{nth($bp,$x+1)}-offset-0::after,
+                                &.fl-#{ list.nth(cfg.$bp,$x+1)}-offset-0::after,
+                                &.fl-flex-#{ list.nth(cfg.$bp,$x+1)}-offset-0::after,
                                 &.fl-offset-0::after
                                 {
                                     content: "*oft - 0";
                                     z-index: 9999;
-                                    background-color: $wireframeBgColorInfo;
-                                    color: $wireframeColorInfo;
-                                    font-size: $wireframeInfoFontSize;
+                                    background-color: cfg.$wireframeBgColorInfo;
+                                    color: cfg.$wireframeColorInfo;
+                                    font-size: cfg.$wireframeInfoFontSize;
                                     width: 50px;
                                     height: 20px;
                                     text-align: center;
@@ -911,7 +913,7 @@
                     {
                         .fl-box,.row
                         {
-                            outline: #{$j}px solid $wireframeBorderColorOnFill !important;
+                            outline: #{$j}px solid cfg.$wireframeBorderColorOnFill !important;
                         }
                     }
                 }

@@ -1,58 +1,35 @@
 /* CSS Flexo */
-@import "_config.scss";
-@import "_mixin_components.scss";
-@import "_reset.scss";
+@use "sass:list";
+@use "sass:math";
+@use "config" as cfg;
+@use "mixin_components" as mc;
+@use "reset" as reset;
 
 
 
-@if($transition)
+@if(cfg.$transition)
 {
     div
     {
-            transition: width $transitionTime $transitionEasing,
-            margin-left $transitionTime $transitionEasing,
-            flex $transitionTime $transitionEasing,
-            min-height $transitionTime $transitionEasing;
+            transition: width cfg.$transitionTime cfg.$transitionEasing,
+            margin-left cfg.$transitionTime cfg.$transitionEasing,
+            flex cfg.$transitionTime cfg.$transitionEasing,
+            min-height cfg.$transitionTime cfg.$transitionEasing;
     }
 
 }
-@for $j from 1 through $box
-{
-    h#{$j}
-    {
-        margin: 0;
-    }
-}
-p
-{
-    margin: 0;
-}
-ul
-{
-    padding: 0;
-    margin: 0;
-}
-li
-{
-    list-style: none;
-}
 
-
-@include flexScaffold($bp, $mediaQuery, $box);
-@include flexUtils;
-@include positioningAndFilling();
-@include textUtils($bp, $mediaQuery);
-@include imagesUtils();
-@include zIndexUtils();
-@include vpUtils(1);
-@include visibilityUtils($bp, $mediaQuery);
+@include mc.flexScaffold(cfg.$bp, cfg.$mediaQuery, cfg.$box);
+@include mc.flexUtils($bps:cfg.$bp, $mqs:cfg.$mediaQuery);
+@include mc.positioningAndFilling();
+@include mc.textUtils(cfg.$bp, cfg.$mediaQuery);
+@include mc.imagesUtils();
+@include mc.zIndexUtils();
+@include mc.vpUtils(1);
+@include mc.visibilityUtils(cfg.$bp, cfg.$mediaQuery);
 
 
 //######################## WIREFRAME MODULE ########################
-@if($env == 'dev')
-{
-    @include wireframe();
-
-}
+@include mc.wireframe();
 
 

@@ -11,7 +11,7 @@
       "author": "davide",
       "contributors": [],
       "dependencies": {
-            "del": "5.1.0",
+            "del": "8.0.1",
             "esm": "^3.2.25"
       },
       "description": "Css light framework",
@@ -19,11 +19,11 @@
       "module": "main.js",
       "license": "MIT",
       "devDependencies": {
-            "gulp": "^4.0.2",
+            "gulp": "^5.0.1",
             "gulp-concat": "^2.6.1",
             "gulp-cssmin": "^0.2.0",
-            "gulp-rename": "^2.0.0",
-            "gulp-sass": "^5.1.0",
-            "sass": "^1.55.0"
+            "gulp-rename": "^2.1.0",
+            "gulp-sass": "^6.0.1",
+            "sass": "^1.93.2"
       }
 }

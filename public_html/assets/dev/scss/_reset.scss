@@ -1,4 +1,4 @@
-@import "_config.scss";
+@use "_config" as cfg;
 /*
     Created on : 16 ott 2025, 00:17:50
     Author     : davide
@@ -22,12 +22,12 @@ body
     margin: 0;
     padding: 0;
     line-height: 1.5;
-    font-family: $fontFamily;
-    font-weight: $fontWeightRegular;
+    font-family: cfg.$fontFamily;
+    font-weight: cfg.$fontWeightRegular;
     font-optical-sizing: auto;
     font-style: normal;
     font-weight: 400;
-    @if($containerOverflowXHidden == 1)
+    @if(cfg.$containerOverflowXHidden == 1)
     {
         max-width: 100vw;
         overflow-x: hidden;
@@ -35,19 +35,19 @@ body
 }
 .font-weight-regular
 {
-    font-weight: $fontWeightRegular;
+    font-weight: cfg.$fontWeightRegular;
 }
 .font-weight-bold
 {
-    font-weight: $fontWeightBold;
+    font-weight: cfg.$fontWeightBold;
 }
 .font-weight-black
 {
-    font-weight: $fontWeightBlack;
+    font-weight: cfg.$fontWeightBlack;
 }
 .font-weight-light
 {
-    font-weight: $fontWeightLight;
+    font-weight: cfg.$fontWeightLight;
 }
 
 /* Rimuove margini tipografici di default */

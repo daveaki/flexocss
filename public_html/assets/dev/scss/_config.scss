@@ -1,56 +1,56 @@
-$env: 'dev';
+$env: 'dev' !default;
 
 /*#######font########*/
-$fontFamily: Georgia, Arial, sans-serif;
-$fontWeightRegular: 400;
-$fontWeightBold: 600;
-$fontWeightBlack: 800;
-$fontWeightLight: 200;
+$fontFamily: Georgia, Arial, sans-serif !default;
+$fontWeightRegular: 400  !default;
+$fontWeightBold: 600 !default;
+$fontWeightBlack: 800 !default;
+$fontWeightLight: 200 !default;
 
 /*#######scaffolding########*/
-$gapStep: 8;
-$gapNumber: 10;
-$gapStepArea: 20;
-$gapNumberArea: 10;
-$box:16;
-$bp:sm,md,lg,sp,mg;
-$containerBlock:1420px;
-$mediaQuery:620px,1024px,1460px,1780px;
-$mediaQueryMAX:5000px;
-$flBoxPadding:0;
-$flBoxPaddingIn:8px 8px;
-$paddingArea: 20px,30px,50px,80px,110px;
+$gapStep: 8 !default;
+$gapNumber: 10 !default;
+$gapStepArea: 20 !default;
+$gapNumberArea: 10 !default;
+$box:16 !default;
+$bp:sm,md,lg,sp,mg !default;
+$containerBlock:1420px !default;
+$mediaQuery:620px,1024px,1460px,1780px !default;
+$mediaQueryMAX:5000px !default;
+$flBoxPadding:0 !default;
+$flBoxPaddingIn:8px 8px !default;
+$paddingArea: 20px,30px,50px,80px,110px !default;
 
 /*#######transition########*/
-$transition:true;
-$transitionTime:400ms;
-$transitionEasing:ease-in-out;
+$transition:true !default;
+$transitionTime:400ms !default;
+$transitionEasing:ease-in-out !default;
 
 /*#######utilities########*/
-$containerOverflowXHidden:1;
-$zIndex:0,10;
+$containerOverflowXHidden:1 !default;
+$zIndex:0,10 !default;
 
 
 
 /*#######wireframe########*/
-$wireframeBorderRadiusContainer: 0px;
-$wireframeBorderRadiusRow: 1px;
-$wireframeBorderRadiusBox: 1px;
+$wireframeBorderRadiusContainer: 0px !default;
+$wireframeBorderRadiusRow: 1px !default;
+$wireframeBorderRadiusBox: 1px !default;
 /*ouline*/
-$wireframeOutlineContainer: #1f2640;
-$wireframeOutlineRow: #aa41c8;
-$wireframeOutlineBox: #3f4b80;
-$wireframeOutlineBgBox: #e9eeff;
+$wireframeOutlineContainer: #1f2640 !default;
+$wireframeOutlineRow: #aa41c8 !default;
+$wireframeOutlineBox: #3f4b80 !default;
+$wireframeOutlineBgBox: #e9eeff !default;
 
 /*fill*/
-$wireframeBgColorBox:#7d96ff;
-$wireframeBgColorRow: #aa41c8;
-$wireframeBgColorContainer: #1f2640;
-$wireframeBorderColorOnFill: #e9eeff;
+$wireframeBgColorBox:#7d96ff !default;
+$wireframeBgColorRow: #aa41c8 !default;
+$wireframeBgColorContainer: #1f2640 !default;
+$wireframeBorderColorOnFill: #e9eeff !default;
 
 /*info*/
-$wireframeFontFamily: Trebuchet MS, sans-serif;
-$wireframeBgColorInfo:#1f2640;
-$wireframeColorInfo:#e9eeff;
-$wireframeFontSizeInfo:14px;
-$wireframeInfoFontSize: 13px;
+$wireframeFontFamily: Trebuchet MS, sans-serif !default;
+$wireframeBgColorInfo:#1f2640 !default;
+$wireframeColorInfo:#e9eeff !default;
+$wireframeFontSizeInfo:14px !default;
+$wireframeInfoFontSize: 13px !default;
