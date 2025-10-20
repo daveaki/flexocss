@@ -27,6 +27,7 @@
 @include mc.zIndexUtils();
 @include mc.vpUtils(1);
 @include mc.visibilityUtils(cfg.$bp, cfg.$mediaQuery);
+@include mc.orderUtils($bps:cfg.$bp, $mqs:cfg.$mediaQuery, $order-min:cfg.$orderMin, $order-max:cfg.$orderMax);
 
 
 //######################## WIREFRAME MODULE ########################

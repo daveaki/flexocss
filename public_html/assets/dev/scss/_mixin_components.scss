@@ -74,7 +74,7 @@
         $mqA:  list.nth($mqs, $b);
         @media (min-width: $mqA) and (max-width: cfg.$mediaQueryMAX)
         {
-             .area
+             .fl-area
             {
                 padding: #{ list.nth(cfg.$paddingArea, $b+1)} 0;
             }
@@ -83,7 +83,7 @@
     }
     @for $a from 0 through cfg.$gapNumberArea
     {
-        .area-#{$a}
+        .fl-area-#{$a}
         {
             padding: #{$a}px 0;
         }
@@ -92,7 +92,7 @@
     {
         $p: cfg.$gapStepArea * $a;
         
-        .area-#{$base}-#{$p}
+        .fl-#{$base}-area-#{$p}
         {
             padding: #{$p}px 0;
         }
@@ -109,9 +109,46 @@
             {
                 $p: cfg.$gapStepArea * $a;
                 
-                .area-#{$name}-#{$p}
+                .fl-#{$name}-area-#{$p}
                 {
                     padding: #{$p}px 0;
+                }
+            }
+        }
+    }
+    
+    /* =====padding utilities ===== */
+    @for $a from 0 through cfg.$paddingNumber
+    {
+        .fl-padding-#{$a}
+        {
+            padding: #{$a}px ;
+        }
+    }
+    @for $a from 0 through cfg.$paddingNumber
+    {
+        $p: cfg.$paddingStep * $a;
+        
+        .fl-#{$base}-padding-#{$p}
+        {
+            padding: #{$p}px;
+        }
+    }
+    @for $b from 1 through $pairs
+    {
+        $name:  list.nth($bps, $b + 1);
+        // md, lg, sp, mg...
+        $mq:  list.nth($mqs, $b);
+        // 768, 1024, 1420, 1760...
+        @media (min-width: $mq) and (max-width: cfg.$mediaQueryMAX)
+        {
+            @for $a from 0 through cfg.$paddingNumber
+            {
+                $p: cfg.$paddingStep * $a;
+                
+                .fl-#{$name}-padding-#{$p}
+                {
+                    padding: #{$p}px;
                 }
             }
         }
@@ -123,7 +160,7 @@
     @for $y from 0 through cfg.$gapNumber
     {
         $g: cfg.$gapStep * $y;
-        .row.gap-#{$g}
+        .row.fl-gap-#{$g}
         {
             --g: #{$g}px;
             gap: #{$g}px;
@@ -132,7 +169,7 @@
     @for $y from 0 through cfg.$gapNumber
     {
         $g: cfg.$gapStep * $y;
-        .row.gap-#{$base}-#{$g}
+        .row.fl-#{$base}-gap-#{$g}
         {
             --g: #{$g}px;
             gap: #{$g}px;
@@ -150,7 +187,7 @@
             @for $y from 0 through cfg.$gapNumber
             {
                 $g: cfg.$gapStep * $y;
-                .row.gap-#{$name}-#{$g}
+                .row.fl-#{$name}-gap-#{$g}
                 {
                     --g: #{$g}px;
                     gap: #{$g}px;
@@ -172,7 +209,7 @@
             max-width: calc(((100% / #{$units}) * #{$i}) - ((#{$k - 1} / #{$k}) * var(--g)));
         }
 
-        .fl-flex-#{$base}-#{$i}
+        .fl-#{$base}-flex-#{$i}
         {
             flex: $i;
         }
@@ -193,7 +230,7 @@
                     width:     calc(((100% / #{$units}) * #{$i}) - ((#{$k - 1} / #{$k}) * var(--g)));
                     max-width: calc(((100% / #{$units}) * #{$i}) - ((#{$k - 1} / #{$k}) * var(--g)));
                 }
-                .fl-flex-#{$name}-#{$i}
+                .fl-#{$name}-flex-#{$i}
                 {
                     flex: $i;
                 }
@@ -309,46 +346,46 @@
     }
 
     /* align-items (asse trasversale) */
-    .#{$pre}items-start    {
+    .#{$pre}align-items-start    {
         align-items: flex-start;
     }
-    .#{$pre}items-center   {
+    .#{$pre}align-items-center   {
         align-items: center;
     }
-    .#{$pre}items-end      {
+    .#{$pre}align-items-end      {
         align-items: flex-end;
     }
-    .#{$pre}items-stretch  {
+    .#{$pre}align-items-stretch  {
         align-items: stretch;
     }
-    .#{$pre}items-baseline {
+    .#{$pre}align-items-baseline {
         align-items: baseline;
     }
     /* alias “verticale in basso” */
-    .#{$pre}items-bottom   {
+    .#{$pre}align-items-bottom   {
         align-items: flex-end;
     }
 
     /* align-content (multi-riga) */
-    .#{$pre}content-start    {
+    .#{$pre}align-content-start    {
         align-content: flex-start;
     }
-    .#{$pre}content-center   {
+    .#{$pre}align-content-center   {
         align-content: center;
     }
-    .#{$pre}content-end      {
+    .#{$pre}align-content-end      {
         align-content: flex-end;
     }
-    .#{$pre}content-between  {
+    .#{$pre}align-content-between  {
         align-content: space-between;
     }
-    .#{$pre}content-around   {
+    .#{$pre}align-content-around   {
         align-content: space-around;
     }
-    .#{$pre}content-evenly   {
+    .#{$pre}align-content-evenly   {
         align-content: space-evenly;
     }
-    .#{$pre}content-stretch  {
+    .#{$pre}align-content-stretch  {
         align-content: stretch;
     }
 
@@ -411,12 +448,14 @@
     @include _emitFlexUtils("fl-#{$base}-");
 
     /* 3) breakpoints successivi in @media → fl-md-..., fl-lg-..., ... */
-    @for $b from 1 through $pairs {
+    @for $b from 1 through $pairs 
+    {
         $name:  list.nth($bps, $b + 1);
         // md, lg, sp, mg...
         $mq:  list.nth($mqs, $b);
         // 768, 1024, 1420, 1760...
-        @media (min-width: $mq) and (max-width: cfg.$mediaQueryMAX) {
+        @media (min-width: $mq) and (max-width: cfg.$mediaQueryMAX)
+            {
             @include _emitFlexUtils("fl-#{$name}-");
         }
     }
@@ -713,6 +752,48 @@
         }
     }
 }
+// Utils: order responsive (Flexbox)
+// Primo BP = base (nessuna media-query)
+// Richiede $bp, $mediaQuery, $mediaQueryMAX definiti nel tuo config.
+@mixin orderUtils($bps:cfg.$bp, $mqs:cfg.$mediaQuery, $order-min:cfg.$orderMin, $order-max:cfg.$orderMax) 
+{
+  $bp-count: list.length($bps);
+  $mq-count: list.length($mqs);
+  $base: list.nth($bps, 1);                      // es: sm
+  $pairs: math.min($bp-count - 1, $mq-count);    // md.. ↔ 768..
+
+  /* 1) Unprefixed (sempre disponibili) */
+  @include emit-order("", $order-min, $order-max);
+
+  /* 2) Base (primo BP, senza media) → fl-sm-order-* */
+  @include emit-order("fl-#{$base}-", $order-min, $order-max);
+
+  /* 3) Breakpoint successivi in @media → fl-md-order-*, fl-lg-order-*, ... */
+  @for $b from 1 through $pairs {
+    $name: list.nth($bps, $b + 1); // md, lg, sp, mg...
+    $mq:   list.nth($mqs, $b);     // 768, 1024, 1420, 1760...
+
+    @media (min-width: $mq) and (max-width: cfg.$mediaQueryMAX) {
+      @include emit-order("fl-#{$name}-", $order-min, $order-max);
+    }
+  }
+}
+// Helper per emettere la famiglia di classi con un prefisso opzionale
+@mixin emit-order($pre:"", $order-min:cfg.$orderMin,$order-max:cfg.$orderMax) 
+{
+  // range numerico
+  @for $n from $order-min through $order-max {
+    .#{$pre}order-#{$n} { order: $n !important; }
+  }
+  // scorciatoie utili
+  .#{$pre}order-reset { order: 0 !important; }      // reset esplicito
+  .#{$pre}order-first { order: -9999 !important; }  // forzare primo
+  .#{$pre}order-last  { order:  9999 !important; }  // forzare ultimo
+}
+
+
+
+
 
 
 

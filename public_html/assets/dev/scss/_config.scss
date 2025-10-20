@@ -10,8 +10,16 @@ $fontWeightLight: 200 !default;
 /*#######scaffolding########*/
 $gapStep: 8 !default;
 $gapNumber: 10 !default;
-$gapStepArea: 20 !default;
+
+$gapStepArea: 16 !default;
 $gapNumberArea: 10 !default;
+
+$paddingStep: 8 !default;
+$paddingNumber: 12 !default;
+
+$orderMin: -10 !default;
+$orderMax: 10 !default;
+
 $box:16 !default;
 $bp:sm,md,lg,sp,mg !default;
 $containerBlock:1420px !default;
