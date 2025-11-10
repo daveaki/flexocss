@@ -51,6 +51,10 @@
         min-width: 0;
         flex: 0 0 auto;
     }
+    .fl-auto
+    {
+         flex: 1 1 0; min-width: 0; 
+    }
     .fl-box-in
     {
         box-sizing: border-box;
@@ -76,7 +80,7 @@
         {
              .fl-area
             {
-                padding: #{ list.nth(cfg.$paddingArea, $b+1)} 0;
+                padding: #{ list.nth(cfg.$paddingArea, $b)} 0;
             }
         }
             
@@ -100,9 +104,7 @@
     @for $b from 1 through $pairs
     {
         $name:  list.nth($bps, $b + 1);
-        // md, lg, sp, mg...
         $mq:  list.nth($mqs, $b);
-        // 768, 1024, 1420, 1760...
         @media (min-width: $mq) and (max-width: cfg.$mediaQueryMAX)
         {
             @for $a from 0 through cfg.$gapNumberArea
@@ -116,6 +118,8 @@
             }
         }
     }
+    
+    
     
     /* =====padding utilities ===== */
     @for $a from 0 through cfg.$paddingNumber
@@ -196,6 +200,9 @@
             }
         }
     }
+    
+    
+    
     /* ===== WIDTH utilities (compensano SEMPRE via var(--g)) ===== */
     /* Base (sm) e unprefixed */
     @for $i from 1 through $units
@@ -207,12 +214,18 @@
         {
             width:     calc(((100% / #{$units}) * #{$i}) - ((#{$k - 1} / #{$k}) * var(--g)));
             max-width: calc(((100% / #{$units}) * #{$i}) - ((#{$k - 1} / #{$k}) * var(--g)));
+            flex: auto;
         }
 
         .fl-#{$base}-flex-#{$i}
         {
             flex: $i;
         }
+        .fl-#{$base}-auto 
+        { 
+                flex: 1 1 0; min-width: 0; 
+        }
+        
     }
     /* Breakpoint successivi (ordine crescente → override garantito) */
     @for $b from 1 through $pairs
@@ -221,7 +234,7 @@
         $mq:  list.nth($mqs, $b);
 
         @media (min-width: $mq) and (max-width: cfg.$mediaQueryMAX)
-            {
+        {
             @for $i from 1 through $units
             {
                 $k: math.div($units,$i);
@@ -229,11 +242,18 @@
                 {
                     width:     calc(((100% / #{$units}) * #{$i}) - ((#{$k - 1} / #{$k}) * var(--g)));
                     max-width: calc(((100% / #{$units}) * #{$i}) - ((#{$k - 1} / #{$k}) * var(--g)));
+                     flex: auto;
                 }
                 .fl-#{$name}-flex-#{$i}
                 {
                     flex: $i;
                 }
+            }
+            
+            .fl-#{$name}-auto 
+            { 
+                flex: 1 1 0; min-width: 0; 
+                max-width: none;
             }
         }
     }
@@ -261,7 +281,6 @@
             }
         }
     }
-
     /* Breakpoint successivi — includo anche offset-0 */
     @for $b from 1 through $pairs
     {
@@ -269,7 +288,7 @@
         $mq:  list.nth($mqs, $b);
 
         @media (min-width: $mq) and (max-width: cfg.$mediaQueryMAX)
-            {
+        {
             @for $o from 0 through $units - 1
             {
                 .fl-#{$name}-offset-#{$o}
@@ -289,11 +308,9 @@
             }
         }
     }
+    
 
 }
-
-
-
 
 // ===================== utils =========================================
 @mixin _emitFlexUtils($pre:"")
@@ -782,7 +799,8 @@
 @mixin emit-order($pre:"", $order-min:cfg.$orderMin,$order-max:cfg.$orderMax) 
 {
   // range numerico
-  @for $n from $order-min through $order-max {
+  @for $n from $order-min through $order-max 
+  {
     .#{$pre}order-#{$n} { order: $n !important; }
   }
   // scorciatoie utili
@@ -790,12 +808,6 @@
   .#{$pre}order-first { order: -9999 !important; }  // forzare primo
   .#{$pre}order-last  { order:  9999 !important; }  // forzare ultimo
 }
-
-
-
-
-
-
 
 
 // ===================== wireframe ======================================
