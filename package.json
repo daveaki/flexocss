@@ -1,29 +1,39 @@
 {
-      "name": "flexo2",
-      "version": "2.0.0",
-      "keywords": [
-            "util",
-            "functional",
-            "server",
-            "client",
-            "browser"
-      ],
-      "author": "davide",
-      "contributors": [],
-      "dependencies": {
-            "del": "8.0.1",
-            "esm": "^3.2.25"
-      },
-      "description": "Css light framework",
-      "main": "index.js",
-      "module": "main.js",
-      "license": "MIT",
-      "devDependencies": {
-            "gulp": "^5.0.1",
-            "gulp-concat": "^2.6.1",
-            "gulp-cssmin": "^0.2.0",
-            "gulp-rename": "^2.1.0",
-            "gulp-sass": "^6.0.1",
-            "sass": "^1.93.2"
-      }
+  "name": "flexocss",
+  "version": "2.0.0",
+  "description": "Lightweight CSS flexbox grid and layout framework",
+  "keywords": [
+    "css",
+    "flexbox",
+    "grid",
+    "layout",
+    "responsive",
+    "framework",
+    "scaffolding",
+    "utility-first"
+  ],
+  "author": "davide",
+  "license": "MIT",
+  "homepage": "https://flexocss.it",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/daveaki/flexocss.git"
+  },
+  "bugs": {
+    "url": "https://github.com/daveaki/flexocss/issues"
+  },
+  "style": "dist/flexo.min.css",
+  "files": [
+    "dist/",
+    "scss/"
+  ],
+  "devDependencies": {
+    "del": "^8.0.1",
+    "gulp": "^5.0.1",
+    "gulp-concat": "^2.6.1",
+    "gulp-cssmin": "^0.2.0",
+    "gulp-rename": "^2.1.0",
+    "gulp-sass": "^6.0.1",
+    "sass": "^1.93.2"
+  }
 }

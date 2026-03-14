@@ -6,8 +6,8 @@ const cssmin  = require('gulp-cssmin');
 const rename  = require('gulp-rename');
 
 const paths = {
-  dev_scss: 'public_html/assets/dev/scss/',
-  dist_css: 'public_html/assets/dist/css/',
+  dev_scss: 'scss/',
+  dist_css: 'dist/',
 };
 
 /** Cleaners (usano import dinamico di del) */
