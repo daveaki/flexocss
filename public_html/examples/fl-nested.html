@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+        <head>
+                <title>Flexo 2 — Nested</title>
+                <meta charset="UTF-8">
+                <meta name="description" content="Flexo 2 — Layout nested">
+                <meta name="viewport" content="width=device-width, initial-scale=1">
+                <meta name="robots" content="noindex, nofollow">
+                <meta name="apple-mobile-web-app-capable" content="yes">
+                <meta name="mobile-web-app-capable" content="yes">
+                <link rel="stylesheet" type="text/css" href="../assets/dist/css/flexo.min.css" />
+                <style>
+                        body,html
+                        {
+                            height: 100%;
+                        }
+                        .row
+                        {
+                            margin-bottom: 30px;
+                        }
+                        .fl-box
+                        {
+                            min-height: 80px;
+                        }
+                        div
+                        {
+                            outline: 1px solid #000
+                        }
+                </style>
+        </head>
+        <body id="wireframe" class="fill border-2">
+
+                <!-- ===== NESTED: row dentro fl-box ===== -->
+                <h3 style="padding:10px">Nested: row dentro un fl-box</h3>
+
+                <div class="container fluid">
+                        <div class="row fl-sm-gap-16">
+                                <div class="fl-box fl-sm-8">
+                                        <div class="row fl-sm-gap-8">
+                                                <div class="fl-box fl-sm-8"></div>
+                                                <div class="fl-box fl-sm-8"></div>
+                                        </div>
+                                </div>
+                                <div class="fl-box fl-sm-8"></div>
+                        </div>
+                </div>
+
+                <!-- ===== NESTED: multi livello ===== -->
+                <h3 style="padding:10px">Nested: 3 livelli di profondità</h3>
+
+                <div class="container fluid">
+                        <div class="row fl-sm-gap-16">
+                                <div class="fl-box fl-sm-10">
+                                        <div class="row fl-sm-gap-8">
+                                                <div class="fl-box fl-sm-6">
+                                                        <div class="row fl-sm-gap-8">
+                                                                <div class="fl-box fl-sm-8"></div>
+                                                                <div class="fl-box fl-sm-8"></div>
+                                                        </div>
+                                                </div>
+                                                <div class="fl-box fl-sm-10"></div>
+                                        </div>
+                                </div>
+                                <div class="fl-box fl-sm-6"></div>
+                        </div>
+                </div>
+
+                <!-- ===== NESTED: sidebar + content ===== -->
+                <h3 style="padding:10px">Nested: layout sidebar + content</h3>
+
+                <div class="container fluid">
+                        <div class="row fl-sm-gap-16">
+                                <div class="fl-box fl-sm-4"></div>
+                                <div class="fl-box fl-sm-12">
+                                        <div class="row fl-sm-gap-8">
+                                                <div class="fl-box fl-sm-4"></div>
+                                                <div class="fl-box fl-sm-4"></div>
+                                                <div class="fl-box fl-sm-4"></div>
+                                                <div class="fl-box fl-sm-4"></div>
+                                        </div>
+                                </div>
+                        </div>
+                </div>
+
+        </body>
+</html>

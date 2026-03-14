@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+        <head>
+                <title>Flexo 2 — fl-{bp}-*</title>
+                <meta charset="UTF-8">
+                <meta name="description" content="Flexo 2 — Classi width responsive">
+                <meta name="viewport" content="width=device-width, initial-scale=1">
+                <meta name="robots" content="noindex, nofollow">
+                <meta name="apple-mobile-web-app-capable" content="yes">
+                <meta name="mobile-web-app-capable" content="yes">
+                <link rel="stylesheet" type="text/css" href="../assets/dist/css/flexo.min.css" />
+                <style>
+                        body,html
+                        {
+                            height: 100%;
+                        }
+                        .row
+                        {
+                            margin-bottom: 30px;
+                        }
+                        .fl-box
+                        {
+                            height: 80px;
+                        }
+                        div
+                        {
+                            outline: 1px solid #000
+                        }
+                </style>
+        </head>
+        <body id="wireframe" class="fill border-2">
+
+                <!-- ===== fl-sm-* (base, sempre attivo) ===== -->
+                <h3 style="padding:10px">fl-sm-* (base, no media query)</h3>
+
+                <div class="container fluid">
+                        <div class="row fl-sm-gap-16">
+                                <div class="fl-box fl-sm-16"></div>
+                        </div>
+                        <div class="row fl-sm-gap-16">
+                                <div class="fl-box fl-sm-8"></div>
+                                <div class="fl-box fl-sm-8"></div>
+                        </div>
+                        <div class="row fl-sm-gap-16">
+                                <div class="fl-box fl-sm-4"></div>
+                                <div class="fl-box fl-sm-4"></div>
+                                <div class="fl-box fl-sm-4"></div>
+                                <div class="fl-box fl-sm-4"></div>
+                        </div>
+                        <div class="row fl-sm-gap-16">
+                                <div class="fl-box fl-sm-6"></div>
+                                <div class="fl-box fl-sm-10"></div>
+                        </div>
+                </div>
+
+                <!-- ===== fl-md-* (768px+) ===== -->
+                <h3 style="padding:10px">fl-md-* (768px+)</h3>
+
+                <div class="container fluid">
+                        <div class="row fl-sm-gap-16">
+                                <div class="fl-box fl-sm-16 fl-md-8"></div>
+                                <div class="fl-box fl-sm-16 fl-md-8"></div>
+                        </div>
+                        <div class="row fl-sm-gap-16">
+                                <div class="fl-box fl-sm-8 fl-md-4"></div>
+                                <div class="fl-box fl-sm-8 fl-md-4"></div>
+                                <div class="fl-box fl-sm-16 fl-md-8"></div>
+                        </div>
+                </div>
+
+                <!-- ===== fl-lg-* (1024px+) ===== -->
+                <h3 style="padding:10px">fl-lg-* (1024px+)</h3>
+
+                <div class="container fluid">
+                        <div class="row fl-sm-gap-16">
+                                <div class="fl-box fl-sm-16 fl-md-8 fl-lg-4"></div>
+                                <div class="fl-box fl-sm-16 fl-md-8 fl-lg-4"></div>
+                                <div class="fl-box fl-sm-16 fl-md-16 fl-lg-8"></div>
+                        </div>
+                </div>
+
+                <!-- ===== fl-sp-* (1420px+) ===== -->
+                <h3 style="padding:10px">fl-sp-* (1420px+)</h3>
+
+                <div class="container fluid">
+                        <div class="row fl-sm-gap-16">
+                                <div class="fl-box fl-sm-16 fl-md-8 fl-lg-4 fl-sp-2"></div>
+                                <div class="fl-box fl-sm-16 fl-md-8 fl-lg-4 fl-sp-6"></div>
+                                <div class="fl-box fl-sm-16 fl-md-16 fl-lg-8 fl-sp-8"></div>
+                        </div>
+                </div>
+
+                <!-- ===== fl-mg-* (1860px+) ===== -->
+                <h3 style="padding:10px">fl-mg-* (1860px+)</h3>
+
+                <div class="container fluid">
+                        <div class="row fl-sm-gap-16">
+                                <div class="fl-box fl-sm-16 fl-md-8 fl-lg-4 fl-mg-3"></div>
+                                <div class="fl-box fl-sm-16 fl-md-8 fl-lg-4 fl-mg-5"></div>
+                                <div class="fl-box fl-sm-16 fl-md-16 fl-lg-8 fl-mg-8"></div>
+                        </div>
+                </div>
+
+                <!-- ===== RESPONSIVE GAP ===== -->
+                <h3 style="padding:10px">Gap responsive: fl-{bp}-gap-*</h3>
+
+                <div class="container fluid">
+                        <div class="row fl-sm-gap-8 fl-md-gap-16 fl-lg-gap-32 fl-sp-gap-48">
+                                <div class="fl-box fl-sm-4"></div>
+                                <div class="fl-box fl-sm-4"></div>
+                                <div class="fl-box fl-sm-4"></div>
+                                <div class="fl-box fl-sm-4"></div>
+                        </div>
+                </div>
+
+                <!-- ===== RESPONSIVE AUTO ===== -->
+                <h3 style="padding:10px">Auto responsive: fl-{bp}-auto</h3>
+
+                <div class="container fluid">
+                        <div class="row fl-sm-gap-16">
+                                <div class="fl-box fl-sm-auto fl-mg-4"></div>
+                                <div class="fl-box fl-sm-auto fl-mg-8"></div>
+                                <div class="fl-box fl-sm-auto fl-mg-4"></div>
+                        </div>
+                        <div class="row fl-sm-gap-16">
+                                <div class="fl-box fl-sm-8 fl-lg-auto"></div>
+                                <div class="fl-box fl-sm-8 fl-lg-auto"></div>
+                        </div>
+                </div>
+
+        </body>
+</html>

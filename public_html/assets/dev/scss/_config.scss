@@ -1,7 +1,6 @@
 $env: 'dev' !default;
 
 /*#######font########*/
-$fontFamily: Mulish, Helvetica Neue, sans-serif !default;
 $fontWeightRegular: 400  !default;
 $fontWeightBold: 600 !default;
 $fontWeightBlack: 800 !default;
@@ -23,11 +22,12 @@ $orderMax: 10 !default;
 $box:16 !default;
 $bp:sm,md,lg,sp,mg,ut !default;
 $containerBlock:1420px !default;
+$containerBlockLM:1460px !default;
 $mediaQuery:480px,768px,1024px,1420px,1860px !default;
 $mediaQueryMAX:5000px !default;
 $flBoxPadding:0 !default;
 $flBoxPaddingIn:8px 8px !default;
-$paddingArea: 20px,30px,50px,80px,110px !default;
+$paddingArea: 24px,48px,64px,88px,112px !default;
 
 /*#######transition########*/
 $transition:true !default;

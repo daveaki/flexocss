@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html>
+        <head>
+                <title>Flexo 2 — Utility</title>
+                <meta charset="UTF-8">
+                <meta name="description" content="Flexo 2 — Utility classes">
+                <meta name="viewport" content="width=device-width, initial-scale=1">
+                <meta name="robots" content="noindex, nofollow">
+                <meta name="apple-mobile-web-app-capable" content="yes">
+                <meta name="mobile-web-app-capable" content="yes">
+                <link rel="stylesheet" type="text/css" href="../assets/dist/css/flexo.min.css" />
+                <style>
+                        body,html
+                        {
+                            height: 100%;
+                        }
+                        .row
+                        {
+                            margin-bottom: 30px;
+                        }
+                        .fl-box
+                        {
+                            min-height: 80px;
+                        }
+                        div
+                        {
+                            outline: 1px solid #000
+                        }
+                        .demo-tall
+                        {
+                            height: 150px;
+                        }
+                        .demo-bg
+                        {
+                            background-color: #e9eeff;
+                        }
+                </style>
+        </head>
+        <body id="wireframe" class="fill border-2">
+
+                <!-- ===== JUSTIFY-CONTENT ===== -->
+                <h3 style="padding:10px">justify-* (asse principale)</h3>
+
+                <div class="container fluid">
+                        <div class="row justify-start fl-sm-gap-16">
+                                <div class="fl-box fl-sm-3"></div>
+                                <div class="fl-box fl-sm-3"></div>
+                        </div>
+                        <div class="row justify-center fl-sm-gap-16">
+                                <div class="fl-box fl-sm-3"></div>
+                                <div class="fl-box fl-sm-3"></div>
+                        </div>
+                        <div class="row justify-end fl-sm-gap-16">
+                                <div class="fl-box fl-sm-3"></div>
+                                <div class="fl-box fl-sm-3"></div>
+                        </div>
+                        <div class="row justify-between">
+                                <div class="fl-box fl-sm-3"></div>
+                                <div class="fl-box fl-sm-3"></div>
+                        </div>
+                        <div class="row justify-around">
+                                <div class="fl-box fl-sm-3"></div>
+                                <div class="fl-box fl-sm-3"></div>
+                        </div>
+                        <div class="row justify-evenly">
+                                <div class="fl-box fl-sm-3"></div>
+                                <div class="fl-box fl-sm-3"></div>
+                        </div>
+                </div>
+
+                <!-- ===== ALIGN-ITEMS ===== -->
+                <h3 style="padding:10px">align-items-* (asse trasversale)</h3>
+
+                <div class="container fluid">
+                        <div class="row align-items-start fl-sm-gap-16 demo-tall demo-bg">
+                                <div class="fl-box fl-sm-4" style="height:40px"></div>
+                                <div class="fl-box fl-sm-4" style="height:60px"></div>
+                                <div class="fl-box fl-sm-4" style="height:30px"></div>
+                        </div>
+                        <div class="row align-items-center fl-sm-gap-16 demo-tall demo-bg">
+                                <div class="fl-box fl-sm-4" style="height:40px"></div>
+                                <div class="fl-box fl-sm-4" style="height:60px"></div>
+                                <div class="fl-box fl-sm-4" style="height:30px"></div>
+                        </div>
+                        <div class="row align-items-end fl-sm-gap-16 demo-tall demo-bg">
+                                <div class="fl-box fl-sm-4" style="height:40px"></div>
+                                <div class="fl-box fl-sm-4" style="height:60px"></div>
+                                <div class="fl-box fl-sm-4" style="height:30px"></div>
+                        </div>
+                        <div class="row align-items-stretch fl-sm-gap-16 demo-tall demo-bg">
+                                <div class="fl-box fl-sm-4" style="height:auto"></div>
+                                <div class="fl-box fl-sm-4" style="height:auto"></div>
+                                <div class="fl-box fl-sm-4" style="height:auto"></div>
+                        </div>
+                </div>
+
+                <!-- ===== PLACE-CENTER ===== -->
+                <h3 style="padding:10px">place-center (combo justify + align)</h3>
+
+                <div class="container fluid">
+                        <div class="row place-center fl-sm-gap-16 demo-tall demo-bg">
+                                <div class="fl-box fl-sm-4" style="height:40px"></div>
+                        </div>
+                </div>
+
+                <!-- ===== JUSTIFY-SELF ===== -->
+                <h3 style="padding:10px">justify-self-* (per singolo item)</h3>
+
+                <div class="container fluid">
+                        <div class="row fl-sm-gap-16">
+                                <div class="fl-box fl-sm-4 justify-self-start"></div>
+                        </div>
+                        <div class="row fl-sm-gap-16">
+                                <div class="fl-box fl-sm-4 justify-self-center"></div>
+                        </div>
+                        <div class="row fl-sm-gap-16">
+                                <div class="fl-box fl-sm-4 justify-self-end"></div>
+                        </div>
+                </div>
+
+                <!-- ===== JUSTIFY-SELF RESPONSIVE ===== -->
+                <h3 style="padding:10px">justify-self-* responsive</h3>
+
+                <div class="container fluid">
+                        <div class="row fl-sm-gap-16">
+                                <div class="fl-box fl-sm-4 fl-sm-justify-self-start fl-mg-justify-self-center"></div>
+                        </div>
+                </div>
+
+                <!-- ===== TEXT ALIGNMENT ===== -->
+                <h3 style="padding:10px">text-* (allineamento testo)</h3>
+
+                <div class="container fluid">
+                        <div class="row fl-sm-gap-16">
+                                <div class="fl-box fl-sm-4 text-left"></div>
+                                <div class="fl-box fl-sm-4 text-center"></div>
+                                <div class="fl-box fl-sm-4 text-right"></div>
+                        </div>
+                        <div class="row fl-sm-gap-16">
+                                <div class="fl-box fl-sm-16 fl-sm-text-left fl-md-text-center fl-lg-text-right"></div>
+                        </div>
+                </div>
+
+                <!-- ===== VISIBILITY ===== -->
+                <h3 style="padding:10px">hidden / visible-* (responsive visibility)</h3>
+
+                <div class="container fluid">
+                        <div class="row fl-sm-gap-16">
+                                <div class="fl-box fl-sm-4" style="background:#c8f7c5"></div>
+                                <div class="fl-box fl-sm-4 fl-md-hidden" style="background:#f7c5c5"></div>
+                                <div class="fl-box fl-sm-4 fl-sm-hidden fl-lg-visible-flex" style="background:#c5d5f7"></div>
+                        </div>
+                </div>
+
+                <!-- ===== ORDER ===== -->
+                <h3 style="padding:10px">order-* (riordino flex items)</h3>
+
+                <div class="container fluid">
+                        <div class="row fl-sm-gap-16">
+                                <div class="fl-box fl-sm-4 order-3" style="background:#c8f7c5"></div>
+                                <div class="fl-box fl-sm-4 order-1" style="background:#f7c5c5"></div>
+                                <div class="fl-box fl-sm-4 order-2" style="background:#c5d5f7"></div>
+                        </div>
+                        <div class="row fl-sm-gap-16">
+                                <div class="fl-box fl-sm-4 order-last" style="background:#c8f7c5"></div>
+                                <div class="fl-box fl-sm-4" style="background:#f7c5c5"></div>
+                                <div class="fl-box fl-sm-4 order-first" style="background:#c5d5f7"></div>
+                        </div>
+                </div>
+
+                <!-- ===== AREA / PADDING ===== -->
+                <h3 style="padding:10px">fl-area-* / fl-padding-* (spaziatura verticale e padding)</h3>
+
+                <div class="container fluid fl-sm-area-32" style="background:#f5f5f5">
+                        <div class="row fl-sm-gap-16">
+                                <div class="fl-box fl-sm-16"></div>
+                        </div>
+                </div>
+                <div class="container fluid fl-sm-area-64" style="background:#eaeaea">
+                        <div class="row fl-sm-gap-16">
+                                <div class="fl-box fl-sm-16"></div>
+                        </div>
+                </div>
+                <div class="container fluid">
+                        <div class="row fl-sm-gap-16">
+                                <div class="fl-box fl-sm-8 fl-sm-padding-16" style="background:#f5f5f5"></div>
+                                <div class="fl-box fl-sm-8 fl-sm-padding-32" style="background:#eaeaea"></div>
+                        </div>
+                </div>
+
+                <!-- ===== FLEX DIRECTION ===== -->
+                <h3 style="padding:10px">flex-row / flex-column</h3>
+
+                <div class="container fluid">
+                        <div class="row flex-row fl-sm-gap-16">
+                                <div class="fl-box fl-sm-4"></div>
+                                <div class="fl-box fl-sm-4"></div>
+                                <div class="fl-box fl-sm-4"></div>
+                        </div>
+                        <div class="row flex-column fl-sm-gap-16">
+                                <div class="fl-box fl-sm-16"></div>
+                                <div class="fl-box fl-sm-16"></div>
+                                <div class="fl-box fl-sm-16"></div>
+                        </div>
+                </div>
+
+                <!-- ===== WRAP ===== -->
+                <h3 style="padding:10px">wrap / nowrap</h3>
+
+                <div class="container fluid">
+                        <div class="row wrap fl-sm-gap-16">
+                                <div class="fl-box fl-sm-6"></div>
+                                <div class="fl-box fl-sm-6"></div>
+                                <div class="fl-box fl-sm-6"></div>
+                                <div class="fl-box fl-sm-6"></div>
+                        </div>
+                        <div class="row nowrap fl-sm-gap-16">
+                                <div class="fl-box fl-sm-6"></div>
+                                <div class="fl-box fl-sm-6"></div>
+                                <div class="fl-box fl-sm-6"></div>
+                                <div class="fl-box fl-sm-6"></div>
+                        </div>
+                </div>
+
+        </body>
+</html>

@@ -20,6 +20,8 @@
     $mq-count: list.length($mqs);
     $base:  list.nth($bps, 1);
     $pairs: min($bp-count - 1, $mq-count);
+    $last-mq: list.nth(cfg.$mediaQuery, list.length(cfg.$mediaQuery));
+    
     .container
     {
         box-sizing: border-box;
@@ -27,7 +29,7 @@
         margin-inline: auto; /* centrare sempre */
         &.fluid
         {
-            max-width: 100%;
+            max-width: 100% !important;;
         }
     }
     .row
@@ -42,7 +44,7 @@
     }
     .row.fluid
     {
-        max-width: 100%;
+        max-width: 100% !important;
     }
     .fl-box
     {
@@ -71,6 +73,19 @@
     {
         padding: #{ list.nth(cfg.$paddingArea, 1)} 0;
     }
+    
+    @media (min-width: $last-mq) 
+    {
+        .container
+        {
+            max-width: cfg.$containerBlockLM !important;
+        }
+        .row
+        {
+            max-width: cfg.$containerBlockLM !important;
+        }
+    }
+    
     
     /* =====area utilities ===== */
     @for $b from 1 through $pairs

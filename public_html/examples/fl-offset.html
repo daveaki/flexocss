@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+        <head>
+                <title>Flexo 2 — fl-offset-*</title>
+                <meta charset="UTF-8">
+                <meta name="description" content="Flexo 2 — Classi offset">
+                <meta name="viewport" content="width=device-width, initial-scale=1">
+                <meta name="robots" content="noindex, nofollow">
+                <meta name="apple-mobile-web-app-capable" content="yes">
+                <meta name="mobile-web-app-capable" content="yes">
+                <link rel="stylesheet" type="text/css" href="../assets/dist/css/flexo.min.css" />
+                <style>
+                        body,html
+                        {
+                            height: 100%;
+                        }
+                        .row
+                        {
+                            margin-bottom: 30px;
+                        }
+                        .fl-box
+                        {
+                            height: 80px;
+                        }
+                        div
+                        {
+                            outline: 1px solid #000
+                        }
+                </style>
+        </head>
+        <body id="wireframe" class="fill border-2">
+
+                <!-- ===== OFFSET UNPREFIXED ===== -->
+                <h3 style="padding:10px">fl-offset-* (unprefixed)</h3>
+
+                <div class="container fluid">
+                        <div class="row fl-gap-16">
+                                <div class="fl-box fl-4"></div>
+                                <div class="fl-box fl-4 fl-offset-4"></div>
+                        </div>
+                        <div class="row fl-gap-16">
+                                <div class="fl-box fl-6 fl-offset-2"></div>
+                                <div class="fl-box fl-6 fl-offset-2"></div>
+                        </div>
+                        <div class="row fl-gap-16">
+                                <div class="fl-box fl-4 fl-offset-6"></div>
+                        </div>
+                        <div class="row fl-gap-16">
+                                <div class="fl-box fl-8 fl-offset-4"></div>
+                        </div>
+                </div>
+
+                <!-- ===== OFFSET fl-sm-offset-* ===== -->
+                <h3 style="padding:10px">fl-sm-offset-* (base)</h3>
+
+                <div class="container fluid">
+                        <div class="row fl-sm-gap-16">
+                                <div class="fl-box fl-sm-4"></div>
+                                <div class="fl-box fl-sm-4 fl-sm-offset-4"></div>
+                        </div>
+                        <div class="row fl-sm-gap-16">
+                                <div class="fl-box fl-sm-3 fl-sm-offset-1"></div>
+                                <div class="fl-box fl-sm-3 fl-sm-offset-2"></div>
+                                <div class="fl-box fl-sm-3 fl-sm-offset-1"></div>
+                        </div>
+                </div>
+
+                <!-- ===== OFFSET RESPONSIVE ===== -->
+                <h3 style="padding:10px">Offset responsive (cambia con il breakpoint)</h3>
+
+                <div class="container fluid">
+                        <div class="row fl-sm-gap-16">
+                                <div class="fl-box fl-sm-8 fl-sm-offset-0 fl-md-offset-4 fl-lg-offset-2"></div>
+                        </div>
+                        <div class="row fl-sm-gap-16">
+                                <div class="fl-box fl-4 fl-sm-offset-0 fl-mg-offset-6"></div>
+                                <div class="fl-box fl-4 fl-mg-3"></div>
+                        </div>
+                </div>
+
+                <!-- ===== OFFSET + GAP ===== -->
+                <h3 style="padding:10px">Offset gap-aware (offset si adatta al gap)</h3>
+
+                <div class="container fluid">
+                        <div class="row fl-gap-0">
+                                <div class="fl-box fl-4 fl-offset-4"></div>
+                                <div class="fl-box fl-4"></div>
+                        </div>
+                        <div class="row fl-gap-16">
+                                <div class="fl-box fl-4 fl-offset-4"></div>
+                                <div class="fl-box fl-4"></div>
+                        </div>
+                        <div class="row fl-gap-32">
+                                <div class="fl-box fl-4 fl-offset-4"></div>
+                                <div class="fl-box fl-4"></div>
+                        </div>
+                </div>
+
+                <!-- ===== RESET OFFSET ===== -->
+                <h3 style="padding:10px">Reset offset (fl-{bp}-offset-0)</h3>
+
+                <div class="container fluid">
+                        <div class="row fl-sm-gap-16">
+                                <div class="fl-box fl-sm-6 fl-sm-offset-5 fl-md-offset-0"></div>
+                        </div>
+                </div>
+
+        </body>
+</html>
