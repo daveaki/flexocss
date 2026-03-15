@@ -1,5 +1,5 @@
 {
-  "name": "flexocss",
+  "name": "@daveaki/flexocss",
   "version": "2.0.0",
   "description": "Lightweight CSS flexbox grid and layout framework",
   "keywords": [
