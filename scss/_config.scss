@@ -1,64 +1,101 @@
+// ============================================================
+// Flexo CSS — Configuration
+// Override these variables BEFORE importing flexo.scss
+// Example: @use 'flexocss/scss/config' with ($box: 12);
+// ============================================================
+
+// Environment: 'dev' enables wireframe mode, 'prod' disables it
 $env: 'dev' !default;
 
-/*#######font########*/
+// =========================== Font ============================
+// Font weight presets used across the framework
 $fontWeightRegular: 400  !default;
 $fontWeightBold: 600 !default;
 $fontWeightBlack: 800 !default;
 $fontWeightLight: 200 !default;
 
-/*#######scaffolding########*/
-$gapStep: 8 !default;
-$gapNumber: 10 !default;
+// ======================== Scaffolding ========================
 
-$gapStepArea: 16 !default;
-$gapNumberArea: 10 !default;
+// Gap: generates classes .fl-gap-0, .fl-gap-8, .fl-gap-16 ... .fl-gap-80
+// $gapStep × $gapNumber = max gap value
+$gapStep: 8 !default;                  // increment in px between each gap class
+$gapNumber: 10 !default;               // number of gap steps to generate
 
-$paddingStep: 8 !default;
-$paddingNumber: 12 !default;
+// Area: vertical padding for sections (.fl-area-0, .fl-sm-area-16 ...)
+// $gapStepArea × $gapNumberArea = max area value
+$gapStepArea: 16 !default;             // increment in px between each area class
+$gapNumberArea: 10 !default;           // number of area steps to generate
 
-$orderMin: -10 !default;
-$orderMax: 10 !default;
+// Padding: generates classes .fl-padding-0, .fl-sm-padding-8 ...
+// $paddingStep × $paddingNumber = max padding value
+$paddingStep: 8 !default;              // increment in px between each padding class
+$paddingNumber: 12 !default;           // number of padding steps to generate
 
-$box:16 !default;
-$bp:sm,md,lg,sp,mg,ut !default;
-$containerBlock:1420px !default;
-$containerBlockLM:1460px !default;
-$mediaQuery:576px,768px,1024px,1420px,1860px !default;
-$mediaQueryMAX:5000px !default;
-$flBoxPadding:0 !default;
-$flBoxPaddingIn:8px 8px !default;
-$paddingArea: 24px,48px,64px,88px,112px !default;
+// Order: generates classes .order-{n} for flexbox item ordering
+$orderMin: -10 !default;               // minimum order value
+$orderMax: 10 !default;                // maximum order value
 
-/*#######transition########*/
-$transition:true !default;
-$transitionTime:400ms !default;
-$transitionEasing:ease-in-out !default;
+// Grid: number of columns (generates .fl-1 to .fl-{$box})
+$box: 16 !default;
 
-/*#######utilities########*/
-$containerOverflowXHidden:1 !default;
-$zIndex:0,10 !default;
+// Breakpoints: names and corresponding min-width media queries
+// First breakpoint (sm) is base — no media query, always active
+// Each subsequent name maps to the media query at the same index
+$bp: sm,md,lg,sp,mg,ut !default;
+$mediaQuery: 576px,768px,1024px,1420px,1860px !default;
 
+// Container: max-width of .container and .row
+$containerBlock: 1420px !default;
+// Container max-width override for the last (largest) media query
+$containerBlockLM: 1460px !default;
+// Upper bound for media queries (prevents styles leaking beyond this width)
+$mediaQueryMAX: 5000px !default;
 
+// Box padding: default padding for .fl-box and .fl-box-in
+$flBoxPadding: 0 !default;
+$flBoxPaddingIn: 8px 8px !default;
 
-/*#######wireframe########*/
+// Area padding: responsive vertical padding per breakpoint
+// Maps to breakpoints in order: sm, md, lg, sp, mg, ut
+$paddingArea: 8px,24px,48px,64px,88px,112px !default;
+
+// ======================== Transitions ========================
+// Enable/disable CSS transitions globally
+$transition: true !default;
+$transitionTime: 400ms !default;
+$transitionEasing: ease-in-out !default;
+
+// ======================== Utilities ==========================
+// Set to 1 to add overflow-x:hidden on .container
+$containerOverflowXHidden: 1 !default;
+// Z-index range: generates .z-index-{start} to .z-index-{end}
+$zIndex: 0,10 !default;
+
+// ============================================================
+// Wireframe (dev only) — visual debugging for layout
+// Activate with: <body id="wireframe" class="fill border-2 info">
+// ============================================================
+
+// Border radius for wireframe outlines
 $wireframeBorderRadiusContainer: 0px !default;
 $wireframeBorderRadiusRow: 1px !default;
 $wireframeBorderRadiusBox: 1px !default;
-/*ouline*/
+
+// Outline mode: border colors for containers, rows, and boxes
 $wireframeOutlineContainer: #1f2640 !default;
 $wireframeOutlineRow: #aa41c8 !default;
 $wireframeOutlineBox: #3f4b80 !default;
 $wireframeOutlineBgBox: #e9eeff !default;
 
-/*fill*/
-$wireframeBgColorBox:#7d96ff !default;
+// Fill mode: background colors when using class="fill"
+$wireframeBgColorBox: #7d96ff !default;
 $wireframeBgColorRow: #aa41c8 !default;
 $wireframeBgColorContainer: #1f2640 !default;
 $wireframeBorderColorOnFill: #e9eeff !default;
 
-/*info*/
+// Info mode: label styles when using class="info"
 $wireframeFontFamily: Trebuchet MS, sans-serif !default;
-$wireframeBgColorInfo:#1f2640 !default;
-$wireframeColorInfo:#e9eeff !default;
-$wireframeFontSizeInfo:14px !default;
+$wireframeBgColorInfo: #1f2640 !default;
+$wireframeColorInfo: #e9eeff !default;
+$wireframeFontSizeInfo: 14px !default;
 $wireframeInfoFontSize: 13px !default;
